@@ -113,7 +113,7 @@ export default function HomePage() {
                     <p className="section-sub text-xs">Latest from the college</p>
                   </div>
                   <Link href="/students" className="text-xs text-brand-600 hover:underline flex items-center gap-1">
-                    View all <ArrowRight size=12 />
+                    View all <ArrowRight size={12} />
                   </Link>
                 </div>
                 <div className="space-y-3">
