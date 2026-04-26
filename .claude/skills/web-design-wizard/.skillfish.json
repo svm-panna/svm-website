@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "web-design-wizard",
+  "owner": "fiatkongen",
+  "repo": "saurun-marketplace",
+  "path": "plugins/saurun/skills/web-design-wizard",
+  "branch": "main",
+  "sha": "0cec668d6dd3e952790517b4c4911d092769b7c7",
+  "source": "manual"
+}

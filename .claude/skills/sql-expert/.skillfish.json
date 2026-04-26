@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "sql-expert",
+  "owner": "icartsh",
+  "repo": "icartsh_plugin",
+  "path": "icartsh-plugin/skills/sql-expert",
+  "branch": "main",
+  "sha": "1e6bac341d37c65c5073c4fb2b0dc65576813116",
+  "source": "manual"
+}
