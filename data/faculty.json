@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Dr. Arvind Singh",
+    "designation": "Principal",
+    "qualifications": "Ph.D.(Education), M.A.(Psychology), M.A.(Economics), M.A.(Education), PG Diploma(Yoga), M.Sc.(Physics)",
+    "specialization": "Education Psychology, Yoga Education",
+    "email": "",
+    "photo": "",
+    "order": 1
+  },
+  {
+    "id": "2",
+    "name": "Sanjay Singh Lodhi",
+    "designation": "Head of Institution",
+    "qualifications": "M.Ed",
+    "specialization": "Educational Administration",
+    "email": "",
+    "photo": "",
+    "order": 2
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "college": {
+    "name": "Swami Vivekanand Mahavidyalaya",
+    "short_name": "SVM Panna",
+    "tagline": "Shaping the teachers of tomorrow",
+    "established": 2014,
+    "location": "Janakpur, Panna, Madhya Pradesh – 488001",
+    "phone": "+91-7987021244",
+    "phone2": "+91-8641044597",
+    "email": "pannango464@gmail.com",
+    "email2": "info@swamivivekanandmahavidyalaya.edu.in",
+    "website": "https://swamivivekanandmahavidyalaya.edu.in",
+    "nearest_railway": "Khajuraho",
+    "nearest_airport": "Khajuraho"
+  },
+  "affiliations": [
+    {
+      "name": "National Council for Teacher Education (NCTE)",
+      "short": "NCTE",
+      "status": "Approved"
+    },
+    {
+      "name": "Maharaja Chhatrasal Bundelkhand University, Chhatarpur",
+      "short": "MCBU",
+      "status": "Affiliated"
+    }
+  ],
+  "stats": {
+    "total_intake": 350,
+    "faculty_count": 16,
+    "programmes": 4,
+    "area_acres": 2.5
+  },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "youtube": "",
+    "twitter": ""
+  },
+  "hero": {
+    "badge": "NCTE approved · Est. 2014",
+    "heading": "Shaping the teachers of tomorrow",
+    "subheading": "A premier teacher education institution in Janakpur, Panna, Madhya Pradesh — affiliated to Maharaja Chhatrasal Bundelkhand University, Chhatarpur."
+  },
+  "ticker_text": "Admissions open for 2025–26 | B.Ed, M.Ed, BA B.Ed & B.Sc B.Ed | NCTE Approved | Affiliated to Maharaja Chhatrasal Bundelkhand University",
+  "admission_open": true
+}

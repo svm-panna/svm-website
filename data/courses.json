@@ -1,0 +1,54 @@
+[
+  {
+    "id": "bed",
+    "name": "Bachelor of Education",
+    "short": "B.Ed",
+    "duration": "2 Years",
+    "seats": 100,
+    "level": "Undergraduate",
+    "type": "Teacher Education",
+    "eligibility": "Bachelor's degree with minimum 50% marks in Sciences / Social Sciences / Humanities, or Bachelor's in Engineering/Technology with 55% marks with specialization in Science and Mathematics.",
+    "syllabus_url": "/docs/bed-syllabus.pdf",
+    "description": "The B.Ed programme prepares graduates for teaching at secondary and senior secondary levels. It combines theory with extensive practice teaching.",
+    "color": "blue"
+  },
+  {
+    "id": "med",
+    "name": "Master of Education",
+    "short": "M.Ed",
+    "duration": "2 Years",
+    "seats": 50,
+    "level": "Postgraduate",
+    "type": "Teacher Education",
+    "eligibility": "B.Ed / B.A.B.Ed / B.Sc.B.Ed / B.El.Ed with minimum 50% marks, or D.El.Ed with an undergraduate degree (50% each).",
+    "syllabus_url": "/docs/med-syllabus.pdf",
+    "description": "M.Ed is a postgraduate research-oriented programme focusing on advanced educational theory, research methodology, and curriculum development.",
+    "color": "teal"
+  },
+  {
+    "id": "babed",
+    "name": "Bachelor of Arts & Bachelor of Education",
+    "short": "BA B.Ed",
+    "duration": "4 Years",
+    "seats": 100,
+    "level": "Integrated Undergraduate",
+    "type": "Integrated Teacher Education",
+    "eligibility": "Minimum 50% marks in Class 12 (10+2) or equivalent from a recognised board.",
+    "syllabus_url": "/docs/babed-syllabus.pdf",
+    "description": "An integrated 4-year programme combining Arts subjects with professional teacher education — ideal for students who want to pursue teaching from the beginning.",
+    "color": "amber"
+  },
+  {
+    "id": "bscbed",
+    "name": "Bachelor of Science & Bachelor of Education",
+    "short": "B.Sc B.Ed",
+    "duration": "4 Years",
+    "seats": 100,
+    "level": "Integrated Undergraduate",
+    "type": "Integrated Teacher Education",
+    "eligibility": "Minimum 50% marks in Class 12 (10+2) with Science subjects (Physics, Chemistry, Biology/Mathematics) from a recognised board.",
+    "syllabus_url": "/docs/bscbed-syllabus.pdf",
+    "description": "An integrated 4-year programme combining Science subjects with professional teacher education, approved by NCTE and affiliated to Maharaja Chhatrasal Bundelkhand University.",
+    "color": "purple"
+  }
+]
