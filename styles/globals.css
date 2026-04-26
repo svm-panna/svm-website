@@ -1,47 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+:root {
+  --saffron: #E87722;
+  --navy: #1A2B4A;
+}
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    @apply text-gray-800 bg-white;
-  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Lexend', sans-serif; @apply text-gray-800 bg-white; }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium
-           hover:bg-brand-700 transition-colors duration-200 inline-flex items-center gap-2;
+    @apply px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:shadow-xl hover:scale-105 inline-flex items-center gap-2;
+    background: #E87722;
   }
-  .btn-secondary {
-    @apply border border-brand-600 text-brand-600 px-5 py-2.5 rounded-lg text-sm font-medium
-           hover:bg-brand-50 transition-colors duration-200 inline-flex items-center gap-2;
-  }
-  .btn-ghost {
-    @apply text-gray-600 px-4 py-2 rounded-lg text-sm
-           hover:bg-gray-100 transition-colors duration-200;
+  .btn-outline {
+    @apply px-7 py-3.5 rounded-full font-semibold border-2 transition-all hover:shadow-md inline-flex items-center gap-2;
+    border-color: #1A2B4A;
+    color: #1A2B4A;
   }
   .card {
-    @apply bg-white border border-gray-100 rounded-xl p-5 shadow-sm;
+    @apply bg-white border border-gray-100 rounded-2xl p-5 shadow-sm;
   }
-  .input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg text-sm
-           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
-           placeholder:text-gray-400;
+  .saffron-gradient {
+    background: linear-gradient(135deg, #E87722 0%, #C85E0A 100%);
   }
-  .label {
-    @apply block text-sm font-medium text-gray-700 mb-1;
+  .hero-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E");
   }
-  .section-heading {
-    @apply text-2xl font-semibold text-gray-900;
+  .page-hero-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E");
   }
-  .section-sub {
-    @apply text-gray-500 mt-1 text-sm;
+  .program-card {
+    @apply transition-all duration-300;
+  }
+  .program-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(26, 43, 74, 0.14);
+  }
+  .affil-card {
+    border: 2px solid #E5EAF3;
+    @apply transition-all duration-300;
+  }
+  .affil-card:hover {
+    border-color: #E87722;
+    box-shadow: 0 8px 24px rgba(232, 119, 34, 0.1);
+    transform: translateY(-2px);
   }
 }
 
@@ -50,3 +59,14 @@
 ::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.anim-up { animation: fadeInUp 0.8s ease both; }
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.25s; }
+.d3 { animation-delay: 0.4s; }
+.d4 { animation-delay: 0.55s; }

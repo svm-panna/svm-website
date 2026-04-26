@@ -8,6 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        saffron: {
+          DEFAULT: '#E87722',
+          dark: '#C85E0A',
+          light: '#F5A35C',
+          pale: '#FEF3EB',
+        },
+        navy: {
+          DEFAULT: '#1A2B4A',
+          dark: '#0F1C34',
+          light: '#263D65',
+          pale: '#EEF2FA',
+        },
         brand: {
           50:  '#e8f0fb',
           100: '#c3d4f5',
@@ -22,7 +34,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Lexend', 'sans-serif'],
+        serif: ['"DM Serif Display"', 'serif'],
       },
     },
   },
