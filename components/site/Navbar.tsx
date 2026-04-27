@@ -69,15 +69,18 @@ export default function Navbar() {
 
       {/* Navbar */}
       <nav className="sticky top-0 bg-white z-50 border-b border-gray-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+          {/* Logo - Centered on small screens, left-aligned on lg+ */}
+          <div className="flex-1 lg:flex-none flex justify-center lg:justify-start">
             <Link href="/" className="flex flex-col items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.png" alt="Swami Vivekanand Mahavidyalaya Panna" className="h-32 w-auto object-contain" style={{ maxWidth: '280px' }} />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo2.png" alt="" className="h-22 w-auto object-contain" style={{ maxWidth: '300px' }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo.png" alt="Swami Vivekanand Mahavidyalaya Panna" className="h-32 w-auto object-contain" style={{ maxWidth: '280px' }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo2.png" alt="" className="h-22 w-auto object-contain" style={{ maxWidth: '300px' }} />
             </Link>
+          </div>
 
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 flex-1">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
@@ -107,9 +110,10 @@ export default function Navbar() {
             </Link>
           </div>
 
+          {/* Hamburger Icon - Right aligned on small screens */}
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden p-2 rounded-md text-gray-500"
+            className="lg:hidden p-2 rounded-md text-gray-500 flex-shrink-0"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
