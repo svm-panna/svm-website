@@ -70,12 +70,12 @@ export default function Navbar() {
       {/* Navbar */}
       <nav className="sticky top-0 bg-white z-50 border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link href="/" className="flex items-center">
+            <Link href="/" className="flex flex-col items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.png" alt="Swami Vivekanand Mahavidyalaya Panna" className="h-24 w-auto object-contain" style={{ maxWidth: '280px' }} />
+            <img src="/images/logo.png" alt="Swami Vivekanand Mahavidyalaya Panna" className="h-32 w-auto object-contain" style={{ maxWidth: '280px' }} />
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo2.png" alt="" className="h-24 w-auto object-contain ml-2" style={{ maxWidth: '220px' }} />
-          </Link>
+            <img src="/images/logo2.png" alt="" className="h-22 w-auto object-contain" style={{ maxWidth: '300px' }} />
+            </Link>
 
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {

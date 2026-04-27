@@ -1,10 +1,26 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect, useCallback } from 'react';
 import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
+
+const bannerSlides = [
+  {
+    file: 'banner-02.jpeg',
+    alt: 'Swami Vivekanand College Panna — Admissions Open',
+    label: 'Admissions Open',
+    ctaHref: '/admissions#apply',
+  },
+  {
+    file: 'banner-01.jpeg',
+    alt: 'Doorasth Adhyayan Kendra Panna — Distance Education',
+    label: 'Distance Education',
+    ctaHref: '/courses',
+  },
+];
 
 const affiliations = [
   { icon: '🏛️', short: 'NCTE', name: 'National Council for Teacher Education' },
@@ -100,6 +116,15 @@ export default function HomePage() {
   const Tc = T.common;
   const programs = homeProgramData[lang];
 
+  const [slide, setSlide] = useState(0);
+  const nextSlide = useCallback(() => setSlide((s) => (s + 1) % bannerSlides.length), []);
+  const prevSlide = () => setSlide((s) => (s - 1 + bannerSlides.length) % bannerSlides.length);
+
+  useEffect(() => {
+    const t = setInterval(nextSlide, 6000);
+    return () => clearInterval(t);
+  }, [nextSlide]);
+
   const stats = [
     { value: '500+', label: Th.statsStudents },
     { value: '5', label: Th.statsPrograms },
@@ -111,109 +136,88 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        {/* HERO */}
-        <section
-          className="hero-pattern relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg,#1A2B4A 0%,#0F1C34 55%,#12203A 100%)', padding: '96px 0 112px' }}
-        >
-          <div
-            className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
-            style={{ background: 'radial-gradient(circle,#E87722,transparent 70%)', transform: 'translate(35%,-35%)' }}
-          />
-          <div
-            className="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-5"
-            style={{ background: 'radial-gradient(circle,#E87722,transparent 70%)', transform: 'translate(-30%,30%)' }}
-          />
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="anim-up d1">
-                <div
-                  className="inline-flex items-center gap-2 mb-6 text-xs font-semibold tracking-widest uppercase"
-                  style={{ color: '#E87722' }}
-                >
-                  <span className="w-8 h-px inline-block" style={{ background: '#E87722' }} />
-                  {Th.heroBadge}
-                </div>
-                <h1
-                  className="font-bold text-white leading-tight mb-6"
-                  style={{ fontFamily: '"DM Serif Display", serif', fontSize: 'clamp(2.4rem,5vw,3.6rem)' }}
-                >
-                  {Th.heroTitle1}
-                  <br />
-                  <em className="not-italic" style={{ color: '#E87722' }}>
-                    {Th.heroTitle2}
-                  </em>
-                  <br />
-                  {Th.heroTitle3}
-                </h1>
-                <p
-                  className="text-lg leading-relaxed mb-8 max-w-lg"
-                  style={{ color: 'rgba(186,210,255,0.8)' }}
-                >
-                  {Th.heroDesc}
-                </p>
-                <div className="flex flex-wrap gap-3 mb-10">
-                  <Link
-                    href="/admissions#apply"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:shadow-xl hover:scale-105"
-                    style={{ background: '#E87722' }}
-                  >
-                    {Tc.applyNow}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                  <Link
-                    href="/courses"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border-2 transition-all hover:bg-white/10"
-                    style={{ borderColor: 'rgba(255,255,255,0.3)' }}
-                  >
-                    {Tc.explorePrograms}
-                  </Link>
-                </div>
-                <div className="flex flex-wrap gap-5">
-                  {[Th.verify1, Th.verify2, Th.verify3].map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-2 text-sm"
-                      style={{ color: 'rgba(186,210,255,0.7)' }}
-                    >
-                      <div
-                        className="w-5 h-5 rounded-full flex items-center justify-center text-xs text-white font-bold"
-                        style={{ background: '#E87722' }}
-                      >
-                        ✓
-                      </div>
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
+        {/* HERO — pure banner slider, no overlay, no text on top */}
+        <section className="relative overflow-hidden" style={{ background: '#ffffff' }}>
+          {/* Banner images */}
+          <div className="relative w-full" style={{ minHeight: '200px' }}>
+            {bannerSlides.map((s, i) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={s.file}
+                src={`/images/${s.file}`}
+                alt={s.alt}
+                className="w-full object-contain transition-opacity duration-700"
+                style={{ opacity: i === slide ? 1 : 0, position: i === 0 ? 'relative' : 'absolute', top: 0, left: 0 }}
+              />
+            ))}
 
-              {/* Campus Photo */}
-              <div className="hidden lg:flex justify-center anim-up d3">
-                <div className="relative w-full max-w-lg">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/campus-01.jpg"
-                    alt="Swami Vivekanand Mahavidyalaya Campus, Panna"
-                    className="w-full rounded-2xl shadow-2xl object-cover"
-                    style={{ maxHeight: '420px' }}
-                  />
-                  <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl px-5 py-3 border border-gray-100">
-                    <div className="text-xs text-gray-500 font-medium">{Th.admissionsOpen}</div>
-                    <div className="font-bold text-sm" style={{ color: '#E87722' }}>
-                      {Th.admissionsYear}
-                    </div>
+            {/* Prev / Next arrows */}
+            <button
+              onClick={prevSlide}
+              aria-label="Previous"
+              className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full text-white transition-all hover:scale-110"
+              style={{ background: 'rgba(0,0,0,0.35)', zIndex: 2 }}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              aria-label="Next"
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full text-white transition-all hover:scale-110"
+              style={{ background: 'rgba(0,0,0,0.35)', zIndex: 2 }}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Slide dots */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2" style={{ zIndex: 2 }}>
+              {bannerSlides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSlide(i)}
+                  aria-label={`Slide ${i + 1}`}
+                  className="w-2.5 h-2.5 rounded-full transition-all"
+                  style={{ background: i === slide ? '#E87722' : 'rgba(0,0,0,0.3)' }}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* CTA strip below the banner */}
+          <div
+            className="flex flex-wrap items-center justify-center gap-4 px-4 py-5"
+            style={{ background: '#1A2B4A' }}
+          >
+            <Link
+              href="/admissions#apply"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-white transition-all hover:shadow-xl hover:scale-105"
+              style={{ background: '#E87722' }}
+            >
+              {Tc.applyNow}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/courses"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-white border-2 transition-all hover:bg-white/10"
+              style={{ borderColor: 'rgba(255,255,255,0.4)' }}
+            >
+              {Tc.explorePrograms}
+            </Link>
+            <div className="hidden sm:flex items-center gap-5 ml-4">
+              {[Th.verify1, Th.verify2, Th.verify3].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(186,210,255,0.85)' }}>
+                  <div className="w-5 h-5 rounded-full flex items-center justify-center text-xs text-white font-bold flex-shrink-0" style={{ background: '#E87722' }}>
+                    ✓
                   </div>
-                  <div
-                    className="absolute top-4 left-4 rounded-lg px-3 py-1.5 text-xs font-semibold text-white"
-                    style={{ background: 'rgba(26,43,74,0.8)' }}
-                  >
-                    {Th.campusBadge}
-                  </div>
+                  {item}
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>

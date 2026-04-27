@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        lg: '1062px',
+      },
       colors: {
         saffron: {
           DEFAULT: '#E87722',
