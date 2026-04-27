@@ -5,26 +5,6 @@ import Link from 'next/link';
 import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
 
-const infoCards = [
-  {
-    href: 'tel:+917987021244',
-    icon: '📞',
-    iconBg: '#FEF3EB',
-    title: 'Call Us',
-    lines: ['+91-7987021244', '+91-9425168440'],
-    sub: 'Mon–Sat, 10AM–6PM',
-    accent: '#E87722',
-  },
-  {
-    href: 'mailto:pannango71@gmail.com',
-    icon: '✉️',
-    iconBg: '#EEF2FA',
-    title: 'Email Us',
-    lines: ['pannango71@gmail.com'],
-    sub: 'We respond within 24 hours',
-    accent: '#E87722',
-  },
-];
 
 function focusStyle(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
   e.target.style.borderColor = '#E87722';
@@ -40,10 +20,34 @@ const inputStyle = { color: '#1A2B4A', outline: 'none' };
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError('');
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      subject: (form.elements.namedItem('subject') as HTMLSelectElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please call us directly or try again.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -204,6 +208,7 @@ export default function ContactPage() {
                       <label className="block text-xs font-semibold mb-1.5" style={{ color: '#1A2B4A' }}>Full Name *</label>
                       <input
                         type="text"
+                        name="name"
                         required
                         placeholder="Your full name"
                         className={inputClass}
@@ -216,6 +221,7 @@ export default function ContactPage() {
                       <label className="block text-xs font-semibold mb-1.5" style={{ color: '#1A2B4A' }}>Mobile Number *</label>
                       <input
                         type="tel"
+                        name="phone"
                         required
                         placeholder="+91 00000 00000"
                         className={inputClass}
@@ -230,6 +236,7 @@ export default function ContactPage() {
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: '#1A2B4A' }}>Email Address</label>
                     <input
                       type="email"
+                      name="email"
                       placeholder="your@email.com"
                       className={inputClass}
                       style={inputStyle}
@@ -241,6 +248,7 @@ export default function ContactPage() {
                   <div>
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: '#1A2B4A' }}>Topic / Subject *</label>
                     <select
+                      name="subject"
                       required
                       className={`${inputClass} bg-white`}
                       style={inputStyle}
@@ -260,6 +268,7 @@ export default function ContactPage() {
                   <div>
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: '#1A2B4A' }}>Your Message *</label>
                     <textarea
+                      name="message"
                       rows={5}
                       required
                       placeholder="Describe your query or message..."
@@ -272,15 +281,22 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full font-semibold text-white text-sm transition-all hover:shadow-lg hover:scale-[1.01]"
+                    disabled={submitting || submitted}
+                    className="w-full py-3.5 rounded-full font-semibold text-white text-sm transition-all hover:shadow-lg hover:scale-[1.01] disabled:opacity-70 disabled:cursor-not-allowed"
                     style={{ background: submitted ? '#2D7A3A' : '#E87722' }}
                   >
-                    {submitted ? 'Sent ✓' : 'Send Message →'}
+                    {submitting ? 'Sending…' : submitted ? 'Sent ✓' : 'Send Message →'}
                   </button>
 
                   {submitted && (
                     <div className="rounded-xl p-4 text-center text-sm font-medium" style={{ background: '#FEF3EB', color: '#C85E0A' }}>
                       ✅ Your message has been sent! We&apos;ll get back to you soon.
+                    </div>
+                  )}
+
+                  {error && (
+                    <div className="rounded-xl p-4 text-center text-sm font-medium" style={{ background: '#FEE2E2', color: '#B91C1C' }}>
+                      {error}
                     </div>
                   )}
                 </form>

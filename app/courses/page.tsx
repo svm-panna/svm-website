@@ -215,13 +215,13 @@ export default function CoursesPage() {
                           >
                             {Tcommon.applyNow}
                           </Link>
-                          <a
-                            href="#"
+                          <Link
+                            href="/contact"
                             className="block text-center px-5 py-2.5 rounded-full text-sm font-semibold border-2 transition-all hover:bg-gray-50"
                             style={{ borderColor: '#1A2B4A', color: '#1A2B4A' }}
                           >
                             {Tcommon.downloadSyllabus}
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -282,13 +282,13 @@ export default function CoursesPage() {
                         >
                           {Tcommon.applyNow}
                         </Link>
-                        <a
-                          href="#"
+                        <Link
+                          href="/admissions"
                           className="flex-1 text-center px-4 py-2.5 rounded-full text-xs font-semibold border-2 hover:bg-gray-50"
                           style={{ borderColor: '#1A2B4A', color: '#1A2B4A' }}
                         >
                           {Tcommon.details}
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   );
@@ -352,6 +352,64 @@ export default function CoursesPage() {
                 </table>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* FEE STRUCTURE */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <div className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: '#E87722' }}>
+                {Tc.feeStructureLabel}
+              </div>
+              <h2
+                className="text-3xl font-bold"
+                style={{ fontFamily: '"DM Serif Display", serif', color: '#1A2B4A' }}
+              >
+                {Tc.feeStructureTitle}
+              </h2>
+              <div className="w-14 h-1 mx-auto mt-4 rounded-full" style={{ background: '#E87722' }} />
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 mb-5">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr style={{ background: '#E87722' }}>
+                      {Tc.feeTableHeaders.map((h) => (
+                        <th
+                          key={h}
+                          className="text-left px-5 py-4 text-white font-semibold text-xs uppercase tracking-wide"
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Tc.feeRows.map((row, i) => (
+                      <tr
+                        key={row.program}
+                        className="border-b border-gray-100 hover:bg-orange-50 transition-colors"
+                        style={i % 2 === 1 ? { background: '#F8F9FA' } : {}}
+                      >
+                        <td className="px-5 py-4">
+                          <span className="font-semibold" style={{ color: '#1A2B4A' }}>{row.program}</span>
+                        </td>
+                        <td className="px-5 py-4 text-gray-600">{row.duration}</td>
+                        <td className="px-5 py-4">
+                          <span className="font-bold" style={{ color: '#E87722' }}>{row.annual}</span>
+                        </td>
+                        <td className="px-5 py-4 text-gray-600">{row.exam}</td>
+                        <td className="px-5 py-4 font-medium" style={{ color: '#1A2B4A' }}>{row.total}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 text-center leading-relaxed max-w-2xl mx-auto">
+              {Tc.feeStructureNote}
+            </p>
           </div>
         </section>
 

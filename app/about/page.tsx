@@ -6,8 +6,20 @@ import Footer from '@/components/site/Footer';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
 
-const galleryRow2 = ['gallery-02.jpeg', 'gallery-06.jpeg', 'gallery-08.jpeg', 'gallery-11.jpeg', 'gallery-16.jpeg', 'gallery-21.jpeg'];
-const galleryRow3 = ['gallery-09.jpeg', 'gallery-14.jpeg', 'gallery-18.jpeg', 'gallery-26.jpeg'];
+const galleryRow2 = [
+  { file: 'gallery-02.jpeg', caption: 'D.El.Ed. classroom practice session' },
+  { file: 'gallery-06.jpeg', caption: 'Student orientation programme' },
+  { file: 'gallery-08.jpeg', caption: 'Inter-college youth festival' },
+  { file: 'gallery-11.jpeg', caption: 'Special education training workshop' },
+  { file: 'gallery-16.jpeg', caption: 'Annual sports meet at SVN Panna' },
+  { file: 'gallery-21.jpeg', caption: 'Faculty development programme' },
+];
+const galleryRow3 = [
+  { file: 'gallery-09.jpeg', caption: 'School teaching practice — B.Ed. internship' },
+  { file: 'gallery-14.jpeg', caption: 'Republic Day celebration on campus' },
+  { file: 'gallery-18.jpeg', caption: 'Science exhibition and student projects' },
+  { file: 'gallery-26.jpeg', caption: 'Convocation ceremony — graduating class' },
+];
 
 export default function AboutPage() {
   const { lang } = useLanguage();
@@ -266,20 +278,28 @@ export default function AboutPage() {
 
             {/* 6-column grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-3">
-              {galleryRow2.map((img) => (
-                <div key={img} className="rounded-xl overflow-hidden aspect-square">
+              {galleryRow2.map((item) => (
+                <div key={item.file} className="rounded-xl overflow-hidden aspect-square relative group">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/${img}`} alt="SVN Panna" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <img src={`/images/${item.file}`} alt={item.caption} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 px-2 py-1.5 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'rgba(26,43,74,0.78)' }}>
+                    {item.caption}
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* Bottom row */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {galleryRow3.map((img) => (
-                <div key={img} className="rounded-xl overflow-hidden" style={{ height: '180px' }}>
+              {galleryRow3.map((item) => (
+                <div key={item.file} className="rounded-xl overflow-hidden relative group" style={{ height: '180px' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/${img}`} alt="SVN Panna" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <img src={`/images/${item.file}`} alt={item.caption} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 px-3 py-2 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'rgba(26,43,74,0.78)' }}>
+                    {item.caption}
+                  </div>
                 </div>
               ))}
             </div>

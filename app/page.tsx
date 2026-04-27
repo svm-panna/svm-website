@@ -15,8 +15,14 @@ const affiliations = [
 ];
 
 const galleryImages = [
-  'gallery-01.jpeg', 'gallery-05.jpeg', 'gallery-07.jpeg', 'gallery-10.jpeg',
-  'gallery-13.jpeg', 'gallery-15.jpeg', 'gallery-20.jpeg', 'gallery-24.jpeg',
+  { file: 'gallery-01.jpeg', caption: 'Annual cultural programme at SVN Panna' },
+  { file: 'gallery-05.jpeg', caption: 'Classroom session — B.Ed. program' },
+  { file: 'gallery-07.jpeg', caption: 'Teaching practice internship' },
+  { file: 'gallery-10.jpeg', caption: 'Campus events and student activities' },
+  { file: 'gallery-13.jpeg', caption: 'Sports and extracurricular activities' },
+  { file: 'gallery-15.jpeg', caption: 'Convocation and award ceremony' },
+  { file: 'gallery-20.jpeg', caption: 'Library and study sessions' },
+  { file: 'gallery-24.jpeg', caption: 'Campus life at SVN Panna' },
 ];
 
 const programIcons = [
@@ -511,14 +517,18 @@ export default function HomePage() {
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {galleryImages.map((img) => (
-                <div key={img} className="rounded-xl overflow-hidden aspect-square">
+              {galleryImages.map((item) => (
+                <div key={item.file} className="rounded-xl overflow-hidden aspect-square relative group">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={`/images/${img}`}
-                    alt="SVN Panna College"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    src={`/images/${item.file}`}
+                    alt={item.caption}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 px-3 py-2 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'rgba(26,43,74,0.75)' }}>
+                    {item.caption}
+                  </div>
                 </div>
               ))}
             </div>

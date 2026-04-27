@@ -72,9 +72,9 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.png" alt="Swami Vivekanand Mahavidyalaya Panna" className="h-20 w-auto object-contain" style={{ maxWidth: '260px' }} />
+            <img src="/images/logo.png" alt="Swami Vivekanand Mahavidyalaya Panna" className="h-24 w-auto object-contain" style={{ maxWidth: '280px' }} />
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo2.png" alt="" className="h-20 w-auto object-contain ml-2" style={{ maxWidth: '200px' }} />
+            <img src="/images/logo2.png" alt="" className="h-24 w-auto object-contain ml-2" style={{ maxWidth: '220px' }} />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
@@ -84,7 +84,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-2 text-sm rounded-lg transition-colors"
+                  className="px-3 py-2 text-base rounded-lg transition-colors"
                   style={
                     active
                       ? { color: '#E87722', background: '#FEF3EB', fontWeight: 600 }
@@ -100,7 +100,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <Link
               href="/admissions#apply"
-              className="px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:shadow-lg hover:scale-105"
+              className="px-5 py-2.5 rounded-full text-base font-semibold text-white transition-all hover:shadow-lg hover:scale-105"
               style={{ background: '#E87722' }}
             >
               {T.applyBtn}
@@ -131,7 +131,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="px-3 py-2.5 text-sm rounded-lg"
+                  className="px-3 py-2.5 text-base rounded-lg"
                   style={
                     pathname === link.href
                       ? { color: '#E87722', fontWeight: 600 }
