@@ -1,6 +1,13 @@
+'use client';
+
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/lib/translations';
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const T = translations[lang].footer;
+
   return (
     <footer style={{ background: '#1A2B4A' }} className="text-white">
       <div className="max-w-7xl mx-auto px-4 py-14">
@@ -24,7 +31,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-xs leading-relaxed mb-4" style={{ color: 'rgba(186,210,255,0.65)' }}>
-              NGO-run teacher education college in Panna, MP. NCTE recognized. Empowering educators since our founding.
+              {T.desc}
             </p>
             <div className="text-xs leading-relaxed" style={{ color: 'rgba(186,210,255,0.5)' }}>
               Ward No. 1, Beside RSS Ground,
@@ -35,16 +42,9 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-sm mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-sm mb-4">{T.quickLinks}</h4>
             <ul className="space-y-2 text-xs" style={{ color: 'rgba(186,210,255,0.65)' }}>
-              {[
-                { href: '/', label: 'Home' },
-                { href: '/about', label: 'About Us' },
-                { href: '/courses', label: 'Academic Programs' },
-                { href: '/admissions', label: 'Admissions' },
-                { href: '/library', label: 'Library' },
-                { href: '/contact', label: 'Contact Us' },
-              ].map((link) => (
+              {T.links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="hover:text-white transition-colors">
                     {link.label}
@@ -56,15 +56,9 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h4 className="font-semibold text-sm mb-4">Programs</h4>
+            <h4 className="font-semibold text-sm mb-4">{T.programs}</h4>
             <ul className="space-y-2 text-xs" style={{ color: 'rgba(186,210,255,0.65)' }}>
-              {[
-                { href: '/courses#bed', label: 'B.Ed. (2 Years)' },
-                { href: '/courses#deled', label: 'D.El.Ed. (2 Years)' },
-                { href: '/courses#babed', label: 'B.A.B.Ed. (4 Years)' },
-                { href: '/courses#dspecial', label: 'D.Ed. Special (2 Years)' },
-                { href: '/courses#iti', label: 'ITI Electrician & Fitter' },
-              ].map((link) => (
+              {T.programLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="hover:text-white transition-colors">
                     {link.label}
@@ -76,7 +70,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-sm mb-4">Contact</h4>
+            <h4 className="font-semibold text-sm mb-4">{T.contact}</h4>
             <ul className="space-y-3 text-xs" style={{ color: 'rgba(186,210,255,0.65)' }}>
               <li className="flex items-start gap-2">
                 <svg className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -103,7 +97,7 @@ export default function Footer() {
                     clipRule="evenodd"
                   />
                 </svg>
-                Mon–Sat: 10 AM – 6 PM
+                {T.hours}
               </li>
             </ul>
           </div>
@@ -115,13 +109,13 @@ export default function Footer() {
           className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs"
           style={{ color: 'rgba(186,210,255,0.4)' }}
         >
-          <div>© 2026 Swami Vivekanand Mahavidyalaya, Panna (MP). All rights reserved.</div>
+          <div>{T.copyright}</div>
           <div className="flex gap-4">
             <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
+              {T.privacy}
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Sitemap
+              {T.sitemap}
             </a>
           </div>
         </div>

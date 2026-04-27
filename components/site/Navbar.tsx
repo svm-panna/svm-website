@@ -3,19 +3,23 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/courses', label: 'Courses' },
-  { href: '/admissions', label: 'Admissions' },
-  { href: '/library', label: 'Library' },
-  { href: '/contact', label: 'Contact' },
-];
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/lib/translations';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { lang, toggleLang } = useLanguage();
+  const T = translations[lang].nav;
+
+  const navLinks = [
+    { href: '/', label: T.home },
+    { href: '/about', label: T.about },
+    { href: '/courses', label: T.courses },
+    { href: '/admissions', label: T.admissions },
+    { href: '/library', label: T.library },
+    { href: '/contact', label: T.contact },
+  ];
 
   return (
     <>
@@ -48,6 +52,17 @@ export default function Navbar() {
                 {badge}
               </span>
             ))}
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLang}
+              className="ml-2 flex items-center gap-0.5 rounded-full px-2.5 py-1 text-xs font-semibold transition-all hover:scale-105"
+              style={{ background: 'rgba(232,119,34,0.25)', border: '1px solid rgba(232,119,34,0.5)', color: '#fff' }}
+              aria-label="Toggle language"
+            >
+              <span style={{ opacity: lang === 'en' ? 1 : 0.45, fontWeight: lang === 'en' ? 700 : 400 }}>EN</span>
+              <span style={{ opacity: 0.4, margin: '0 3px' }}>|</span>
+              <span style={{ opacity: lang === 'hi' ? 1 : 0.45, fontWeight: lang === 'hi' ? 700 : 400 }}>हिं</span>
+            </button>
           </div>
         </div>
       </div>
@@ -88,7 +103,7 @@ export default function Navbar() {
               className="px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:shadow-lg hover:scale-105"
               style={{ background: '#E87722' }}
             >
-              Apply 2026–27
+              {T.applyBtn}
             </Link>
           </div>
 
@@ -132,8 +147,18 @@ export default function Navbar() {
                 className="mt-2 px-5 py-3 rounded-full text-sm font-semibold text-white text-center"
                 style={{ background: '#E87722' }}
               >
-                Apply 2026–27
+                {T.applyBtn}
               </Link>
+              {/* Language toggle in mobile menu */}
+              <button
+                onClick={toggleLang}
+                className="mt-2 mx-auto flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold transition-all"
+                style={{ background: '#FEF3EB', color: '#E87722', border: '1px solid #E87722' }}
+              >
+                <span style={{ fontWeight: lang === 'en' ? 700 : 400 }}>English</span>
+                <span style={{ opacity: 0.4, margin: '0 4px' }}>|</span>
+                <span style={{ fontWeight: lang === 'hi' ? 700 : 400 }}>हिंदी</span>
+              </button>
             </div>
           </div>
         )}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../styles/globals.css';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +32,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
