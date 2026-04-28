@@ -141,43 +141,17 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-bold mb-5" style={{ fontFamily: '"DM Serif Display", serif', color: '#1A2B4A' }}>
                   Find Us on the Map
                 </h2>
-                <div
-                  className="rounded-2xl overflow-hidden h-80 flex flex-col items-center justify-center relative"
-                  style={{ background: 'linear-gradient(135deg, #1A2B4A 0%, #263D65 100%)' }}
-                >
-                  {/* Decorative grid overlay */}
-                  <div
-                    className="absolute inset-0 opacity-30"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E")`,
-                    }}
+                <div className="rounded-2xl overflow-hidden h-80">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.0!2d80.1946953!3d24.7293252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39830483e0e83de9%3A0xe7d8d14b20052035!2sSwami%20Vivekanand%20Mahavidyalya!5e0!3m2!1sen!2sin!4v1"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Swami Vivekanand Mahavidyalaya Location"
                   />
-                  {/* Decorative road SVG */}
-                  <svg viewBox="0 0 400 280" fill="none" className="absolute inset-0 w-full h-full opacity-30">
-                    <line x1="0" y1="140" x2="400" y2="140" stroke="white" strokeWidth="3" opacity="0.4" />
-                    <line x1="200" y1="0" x2="200" y2="280" stroke="white" strokeWidth="3" opacity="0.4" />
-                    <line x1="0" y1="80" x2="400" y2="200" stroke="white" strokeWidth="1.5" opacity="0.2" />
-                    <line x1="50" y1="0" x2="350" y2="280" stroke="white" strokeWidth="1.5" opacity="0.2" />
-                    <rect x="60" y="100" width="60" height="30" rx="2" fill="white" opacity="0.1" />
-                    <rect x="140" y="90" width="40" height="40" rx="2" fill="white" opacity="0.1" />
-                    <rect x="240" y="105" width="70" height="25" rx="2" fill="white" opacity="0.1" />
-                    <rect x="100" y="155" width="50" height="35" rx="2" fill="white" opacity="0.1" />
-                    <rect x="260" y="150" width="80" height="40" rx="2" fill="white" opacity="0.1" />
-                  </svg>
-                  <div className="relative z-10 text-center">
-                    <div className="flex flex-col items-center">
-                      <div
-                        className="w-14 h-14 rounded-full border-4 border-white flex items-center justify-center text-xl shadow-2xl mb-2"
-                        style={{ background: '#E87722' }}
-                      >
-                        📍
-                      </div>
-                      <div className="bg-white rounded-xl px-4 py-2 shadow-xl text-sm">
-                        <div className="font-bold" style={{ color: '#1A2B4A' }}>SVN Mahavidyalaya</div>
-                        <div className="text-xs text-gray-500">Indrapuri Colony, Panna (MP)</div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div className="mt-4 p-4 rounded-xl border border-gray-100" style={{ background: '#F8F9FA' }}>
                   <div className="flex items-start gap-3">
