@@ -7,11 +7,11 @@ import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
 
 const affiliations = [
-  { icon: '🏛️', short: 'NCTE', name: 'National Council for Teacher Education' },
-  { icon: '🎓', short: 'MCBU', name: 'Mahatma Chhatrasala University' },
-  { icon: '📋', short: 'UGC', name: 'University Grants Commission' },
-  { icon: '📊', short: 'AISHE', name: 'All India Survey on Higher Education' },
-  { icon: '⭐', short: 'AFRCMP', name: 'State Regulatory Authority, MP' },
+  { logo: '/images/logos/ncte.png', short: 'NCTE', name: 'National Council for Teacher Education' },
+  { logo: '/images/logos/mcbu.png', short: 'MCBU', name: 'Mahatma Chhatrasala University' },
+  { logo: '/images/logos/ugc.png', short: 'UGC', name: 'University Grants Commission' },
+  { logo: '/images/logos/aishe.png', short: 'AISHE', name: 'All India Survey on Higher Education' },
+  { logo: '/images/logos/afrcmp.png', short: 'AFRCMP', name: 'State Regulatory Authority, MP' },
 ];
 
 const affiliationCertificates = [
@@ -569,7 +569,15 @@ export default function HomePage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {affiliations.map((a) => (
                 <div key={a.short} className="affil-card rounded-xl p-5 text-center cursor-default">
-                  <div className="text-3xl mb-2">{a.icon}</div>
+                  <div className="flex items-center justify-center mb-3" style={{ height: '56px' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={a.logo}
+                      alt={a.name}
+                      className="max-h-full max-w-full object-contain"
+                      style={{ maxHeight: '56px', maxWidth: '100px' }}
+                    />
+                  </div>
                   <div className="font-bold text-sm mb-1" style={{ color: '#1A2B4A' }}>
                     {a.short}
                   </div>
