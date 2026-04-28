@@ -16,6 +16,7 @@ export default function Navbar() {
     { href: '/', label: T.home },
     { href: '/about', label: T.about },
     { href: '/courses', label: T.courses },
+    { href: '/distance-learning', label: T.distanceLearning },
     { href: '/admissions', label: T.admissions },
     { href: '/library', label: T.library },
     { href: '/contact', label: T.contact },
@@ -27,11 +28,11 @@ export default function Navbar() {
       <div style={{ background: '#1A2B4A' }}>
         <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex flex-wrap items-center gap-4 text-xs" style={{ color: 'rgba(255,255,255,0.85)' }}>
-            <a href="tel:+917987021244" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="tel:+917999404729" className="flex items-center gap-1.5 hover:text-white transition-colors">
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              +91-7987021244
+              +91-7999404729
             </a>
             <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
             <a href="mailto:pannango71@gmail.com" className="flex items-center gap-1.5 hover:text-white transition-colors">

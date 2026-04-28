@@ -42,8 +42,8 @@ export default function PrivacyPage() {
                   1. About This Policy
                 </h2>
                 <p>
-                  Swami Vivekanand Mahavidyalaya (&ldquo;SVN Panna&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is an NGO-run teacher
-                  education institution located at Ward No. 1, Indrapuri Colony, Panna, Madhya Pradesh. This Privacy
+                  Swami Vivekanand Mahavidyalaya (&ldquo;SVN Panna&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is a teacher
+                  education institution run by Sriram Shiksha Prasar Evam Gramin Vikas Samajothan Samiti, located at Ward No. 1, Indrapuri Colony, Panna, Madhya Pradesh. This Privacy
                   Policy explains how we collect, use, and protect information submitted through our website at{' '}
                   <span className="font-medium">indiamppannango.org</span>.
                 </p>
@@ -111,7 +111,7 @@ export default function PrivacyPage() {
                   <a href="mailto:pannango71@gmail.com" className="font-medium" style={{ color: '#E87722' }}>
                     pannango71@gmail.com
                   </a>{' '}
-                  or calling <a href="tel:+917987021244" style={{ color: '#E87722' }}>+91-7987021244</a>.
+                  or calling <a href="tel:+917999404729" style={{ color: '#E87722' }}>+91-7999404729</a>.
                 </p>
               </div>
 
@@ -130,7 +130,7 @@ export default function PrivacyPage() {
                 <p className="text-sm">
                   Swami Vivekanand Mahavidyalaya, Ward No. 1, Beside RSS Ground,
                   Indrapuri Colony, Panna — 488001, Madhya Pradesh<br />
-                  📞 <a href="tel:+917987021244" style={{ color: '#E87722' }}>+91-7987021244</a> &nbsp;|&nbsp;
+                  📞 <a href="tel:+917999404729" style={{ color: '#E87722' }}>+91-7999404729</a> &nbsp;|&nbsp;
                   ✉️ <a href="mailto:pannango71@gmail.com" style={{ color: '#E87722' }}>pannango71@gmail.com</a>
                 </p>
               </div>

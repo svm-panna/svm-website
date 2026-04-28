@@ -79,13 +79,24 @@ export default function AdmissionsPage() {
                 </div>
               </div>
             </div>
-            <a
-              href="#apply"
-              className="px-6 py-2.5 bg-white font-semibold rounded-full text-sm flex-shrink-0 transition-all hover:shadow-lg"
-              style={{ color: '#E87722' }}
-            >
-              {Ta.applyNowArrow}
-            </a>
+            <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
+              <a
+                href="#apply"
+                className="px-6 py-2.5 bg-white font-semibold rounded-full text-sm transition-all hover:shadow-lg"
+                style={{ color: '#E87722' }}
+              >
+                {Ta.applyNowArrow}
+              </a>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScjuIN1EUS1AXM9L8Ie61_wYjs_VpPlhmcipj5WFJQZbQk12w/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2.5 font-semibold rounded-full text-sm transition-all hover:bg-white/10"
+                style={{ border: '2px solid rgba(255,255,255,0.7)', color: '#ffffff' }}
+              >
+                {lang === 'hi' ? 'परामर्श फॉर्म' : 'Counselling Form'}
+              </a>
+            </div>
           </div>
         </section>
 
@@ -148,8 +159,8 @@ export default function AdmissionsPage() {
                 <div className="text-4xl mb-3">📞</div>
                 <div className="font-bold mb-2" style={{ color: '#1A2B4A' }}>{Ta.needHelp}</div>
                 <p className="text-sm text-gray-600 mb-4">{Ta.needHelpDesc}</p>
-                <a href="tel:+917987021244" className="text-sm font-semibold" style={{ color: '#E87722' }}>
-                  +91-7987021244
+                <a href="tel:+917999404729" className="text-sm font-semibold" style={{ color: '#E87722' }}>
+                  +91-7999404729
                 </a>
               </div>
             </div>
@@ -407,8 +418,8 @@ export default function AdmissionsPage() {
 
               <p className="text-xs text-center text-gray-400">
                 {Ta.callUs}{' '}
-                <a href="tel:+917987021244" className="font-medium" style={{ color: '#E87722' }}>
-                  +91-7987021244
+                <a href="tel:+917999404729" className="font-medium" style={{ color: '#E87722' }}>
+                  +91-7999404729
                 </a>
               </p>
             </form>

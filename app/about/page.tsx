@@ -5,6 +5,7 @@ import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
+import facultyData from '@/data/faculty.json';
 
 const galleryRow2 = [
   { file: 'gallery-02.jpeg', caption: 'D.El.Ed. classroom practice session' },
@@ -216,6 +217,79 @@ export default function AboutPage() {
                     </span>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FACULTY */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-14">
+              <div className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: '#E87722' }}>
+                {Ta.facultyLabel}
+              </div>
+              <h2 className="text-3xl font-bold" style={{ fontFamily: '"DM Serif Display", serif', color: '#1A2B4A' }}>
+                {Ta.facultyTitle}
+              </h2>
+              <div className="w-14 h-1 mx-auto mt-4 rounded-full" style={{ background: '#E87722' }} />
+            </div>
+
+            {/* Principal */}
+            <div className="mb-10">
+              <div className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#1A2B4A' }}>
+                {Ta.facultyPrincipalLabel}
+              </div>
+              {facultyData.filter(f => f.role === 'principal').map(f => (
+                <div key={f.id} className="inline-flex items-center gap-4 bg-white rounded-2xl px-6 py-4 shadow-sm border border-gray-100" style={{ borderLeft: '4px solid #E87722' }}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold text-white flex-shrink-0" style={{ background: '#E87722' }}>
+                    {f.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-bold text-base" style={{ color: '#1A2B4A' }}>{f.name}</div>
+                    <div className="text-sm" style={{ color: '#E87722' }}>{f.designation}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Lecturers */}
+            <div className="mb-10">
+              <div className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#1A2B4A' }}>
+                {Ta.facultyLecturersLabel}
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {facultyData.filter(f => f.role === 'lecturer').map(f => (
+                  <div key={f.id} className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:-translate-y-0.5 transition-transform duration-200">
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0" style={{ background: '#1A2B4A' }}>
+                      {f.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="font-medium text-sm" style={{ color: '#1A2B4A' }}>{f.name}</div>
+                      <div className="text-xs text-gray-400">{f.designation}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Specialized Teachers */}
+            <div>
+              <div className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#1A2B4A' }}>
+                {Ta.facultySpecializedLabel}
+              </div>
+              <div className="flex flex-wrap gap-4">
+                {facultyData.filter(f => f.role === 'specialized').map(f => (
+                  <div key={f.id} className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100">
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style={{ background: '#FEF3EB', color: '#E87722' }}>
+                      {f.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="font-medium text-sm" style={{ color: '#1A2B4A' }}>{f.name}</div>
+                      <div className="text-xs" style={{ color: '#E87722' }}>{f.designation}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

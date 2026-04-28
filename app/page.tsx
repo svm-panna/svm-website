@@ -1,26 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect, useCallback } from 'react';
 import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
-
-const bannerSlides = [
-  {
-    file: 'banner-02.jpeg',
-    alt: 'Swami Vivekanand College Panna — Admissions Open',
-    label: 'Admissions Open',
-    ctaHref: '/admissions#apply',
-  },
-  {
-    file: 'banner-01.jpeg',
-    alt: 'Doorasth Adhyayan Kendra Panna — Distance Education',
-    label: 'Distance Education',
-    ctaHref: '/courses',
-  },
-];
 
 const affiliations = [
   { icon: '🏛️', short: 'NCTE', name: 'National Council for Teacher Education' },
@@ -28,6 +12,18 @@ const affiliations = [
   { icon: '📋', short: 'UGC', name: 'University Grants Commission' },
   { icon: '📊', short: 'AISHE', name: 'All India Survey on Higher Education' },
   { icon: '⭐', short: 'AFRCMP', name: 'State Regulatory Authority, MP' },
+];
+
+const affiliationCertificates = [
+  { program: 'B.Ed.', label: '2014–2015', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/Aaffiliation-BED-2014-15.pdf', color: '#E87722', bg: '#FEF3EB' },
+  { program: 'B.Ed.', label: '2015–2016', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/Aaffiliation-BED-2015-16.pdf', color: '#E87722', bg: '#FEF3EB' },
+  { program: 'B.Ed.', label: '2016–2017', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/Affiliation-BED-2016-17.pdf', color: '#E87722', bg: '#FEF3EB' },
+  { program: 'B.A.B.Ed.', label: '2017–2018', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/Affiliation-BABED-2017-18.pdf', color: '#1A2B4A', bg: '#EEF2FA' },
+  { program: 'B.A.B.Ed. & B.Ed.', label: '2018–2019', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/Affiliation-BABED-BED-2018-19.pdf', color: '#1A2B4A', bg: '#EEF2FA' },
+  { program: 'B.A.B.Ed. & B.Ed.', label: '2019–2020', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/Affiliation-BABED-BED-2019-20.pdf', color: '#1A2B4A', bg: '#EEF2FA' },
+  { program: 'D.El.Ed.', label: '2016 · Page 1', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/Affiliation-DELED-2016-1st-page.pdf', color: '#E87722', bg: '#FEF3EB' },
+  { program: 'D.El.Ed.', label: '2016 · Page 2', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/Affiliation-DELED-2016-2nd-page.pdf', color: '#E87722', bg: '#FEF3EB' },
+  { program: 'D.El.Ed.', label: '2017–2020', url: 'https://www.indiamppannango.org/wp-content/uploads/2020/07/AaffiliationDELED201720.pdf', color: '#E87722', bg: '#FEF3EB' },
 ];
 
 const galleryImages = [
@@ -41,71 +37,106 @@ const galleryImages = [
   { file: 'gallery-24.jpeg', caption: 'Campus life at SVN Panna' },
 ];
 
-const programIcons = [
-  (
-    <svg viewBox="0 0 28 28" className="w-7 h-7" fill="none">
-      <path d="M14 3L3 9l11 5.5L25 9 14 3z" fill="#E87722" />
-      <path d="M3 14l11 5.5L25 14" stroke="#E87722" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M3 19l11 5.5L25 19" stroke="#E87722" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
-    </svg>
-  ),
-  (
-    <svg viewBox="0 0 28 28" className="w-7 h-7" fill="none">
-      <rect x="5" y="7" width="18" height="14" rx="2" fill="#1A2B4A" opacity="0.8" />
-      <path d="M9 12h10M9 16h6" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="21" cy="7" r="4" fill="#E87722" />
-      <path d="M19.5 7l1.2 1.3L23 5.5" stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  (
-    <svg viewBox="0 0 28 28" className="w-7 h-7" fill="none">
-      <path d="M14 2L2 8l12 6 12-6-12-6z" fill="#E87722" />
-      <path d="M6 11v8" stroke="#1A2B4A" strokeWidth="1.5" strokeLinecap="round" />
-      <rect x="4" y="19" width="4" height="4" rx="1" fill="#1A2B4A" />
-      <path d="M22 11v8" stroke="#1A2B4A" strokeWidth="1.5" strokeLinecap="round" />
-      <rect x="20" y="19" width="4" height="4" rx="1" fill="#1A2B4A" />
-    </svg>
-  ),
-  (
-    <svg viewBox="0 0 28 28" className="w-7 h-7" fill="none">
-      <circle cx="14" cy="10" r="4" fill="#E87722" opacity="0.25" />
-      <circle cx="14" cy="10" r="2.5" fill="#E87722" />
-      <path d="M7 24c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#E87722" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M19 18.5l2.5 2.5-2.5 2.5" stroke="#1A2B4A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  (
-    <svg viewBox="0 0 28 28" className="w-7 h-7" fill="none">
-      <circle cx="14" cy="14" r="8" stroke="#1A2B4A" strokeWidth="1.5" fill="none" />
-      <path d="M14 10v4l3 2" stroke="#1A2B4A" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M8 24h12" stroke="#E87722" strokeWidth="2" strokeLinecap="round" />
-      <path d="M10 22l2-2h4l2 2" stroke="#1A2B4A" strokeWidth="1" strokeLinecap="round" />
-    </svg>
-  ),
-];
-
-const programMeta = [
-  { id: 'bed', short: 'B.Ed.', badgeBg: '#FEF3EB', badgeColor: '#E87722', iconBg: '#FEF3EB' },
-  { id: 'deled', short: 'D.El.Ed.', badgeBg: '#FEF3EB', badgeColor: '#E87722', iconBg: '#EEF2FA' },
-  { id: 'babed', short: 'B.A.B.Ed.', badgeBg: '#EEF2FA', badgeColor: '#1A2B4A', iconBg: '#FEF3EB' },
-  { id: 'dspecial', short: 'D.Ed. Special', badgeBg: '#FEF3EB', badgeColor: '#E87722', iconBg: '#FEF3EB' },
-  { id: 'iti', short: 'ITI Trades', badgeBg: '#EEF2FA', badgeColor: '#1A2B4A', iconBg: '#EEF2FA' },
-];
-
-const homeProgramData = {
+const homeCategories = {
   en: [
-    { name: 'Bachelor of Education', badge: '2 Years · 50 Seats', desc: 'Professional teacher training for secondary & higher secondary levels.' },
-    { name: 'Diploma in Elementary Education', badge: '2 Years · 50 Seats', desc: 'Foundation program for primary & elementary school teaching.' },
-    { name: 'Integrated BA + BEd', badge: '4 Years · 40 Seats', desc: 'Integrated Arts & Education degree for aspiring school teachers.' },
-    { name: 'Special Education Diploma', badge: '2 Years · 25 Seats', desc: 'Specialized training to teach children with diverse learning needs.' },
-    { name: 'Electrician & Fitter', badge: '1–2 Yrs · 60 Seats', desc: 'Vocational training for skilled employment in technical trades.' },
+    {
+      id: 'teaching',
+      icon: '📚',
+      category: 'Teacher Education',
+      accent: '#E87722',
+      bg: '#FEF3EB',
+      programs: [
+        { short: 'B.Ed.', name: 'Bachelor of Education', duration: '2 Yrs', eligible: 'Graduate' },
+        { short: 'D.Ed.', name: 'Diploma in Education', duration: '2 Yrs', eligible: '10+2' },
+        { short: 'B.A.B.Ed.', name: 'Integrated BA + BEd', duration: '4 Yrs', eligible: '10+2' },
+      ],
+    },
+    {
+      id: 'special',
+      icon: '♿',
+      category: 'Special Education',
+      accent: '#1A2B4A',
+      bg: '#EEF2FA',
+      programs: [
+        { short: 'D.Ed. Spl. HI/VI', name: 'Special Ed Diploma (HI/VI)', duration: '2 Yrs', eligible: '12th' },
+        { short: 'B.Ed. Spl. VI', name: 'B.Ed. Special Education (VI)', duration: 'B.Ed. Duration', eligible: 'Graduate' },
+        { short: 'BA/BSc/BCom B.Ed.', name: 'Integrated Spl. Education', duration: '4 Yrs', eligible: '12th' },
+      ],
+    },
+    {
+      id: 'technical',
+      icon: '⚙️',
+      category: 'Technical & Vocational',
+      accent: '#E87722',
+      bg: '#FEF3EB',
+      programs: [
+        { short: 'ITI Electrician', name: 'Electrician Trade', duration: '2 Yrs', eligible: '8th Pass' },
+        { short: 'ITI Fitter', name: 'Fitter Trade', duration: '2 Yrs', eligible: '8th Pass' },
+        { short: 'OT Technician', name: 'Operation Theatre Tech.', duration: '1 Yr', eligible: '12th Bio' },
+      ],
+    },
+    {
+      id: 'medical',
+      icon: '💊',
+      category: 'Medical & Paramedical',
+      accent: '#1A2B4A',
+      bg: '#EEF2FA',
+      programs: [
+        { short: 'D-Pharma', name: 'Diploma in Pharmacy', duration: '2 Yrs', eligible: '12th Bio/Math' },
+        { short: 'DMLT', name: 'Diploma Medical Lab Tech.', duration: '2 Yrs', eligible: '12th Bio' },
+        { short: 'BMLT', name: 'Bachelor Medical Lab Tech.', duration: '3 Yrs', eligible: '12th Bio' },
+      ],
+    },
   ],
   hi: [
-    { name: 'शिक्षा स्नातक', badge: '2 वर्ष · 50 सीटें', desc: 'माध्यमिक और उच्च माध्यमिक स्तर के लिए पेशेवर शिक्षक प्रशिक्षण।' },
-    { name: 'प्राथमिक शिक्षा डिप्लोमा', badge: '2 वर्ष · 50 सीटें', desc: 'प्राथमिक और प्राथमिक विद्यालय शिक्षण के लिए आधार कार्यक्रम।' },
-    { name: 'एकीकृत बीए + बीएड', badge: '4 वर्ष · 40 सीटें', desc: 'इच्छुक विद्यालय शिक्षकों के लिए एकीकृत कला और शिक्षा डिग्री।' },
-    { name: 'विशेष शिक्षा डिप्लोमा', badge: '2 वर्ष · 25 सीटें', desc: 'विविध सीखने की जरूरतों वाले बच्चों को पढ़ाने के लिए विशेष प्रशिक्षण।' },
-    { name: 'इलेक्ट्रीशियन और फिटर', badge: '1-2 वर्ष · 60 सीटें', desc: 'तकनीकी व्यवसायों में कुशल रोजगार के लिए व्यावसायिक प्रशिक्षण।' },
+    {
+      id: 'teaching',
+      icon: '📚',
+      category: 'शिक्षक शिक्षा',
+      accent: '#E87722',
+      bg: '#FEF3EB',
+      programs: [
+        { short: 'बी.एड.', name: 'बैचलर ऑफ एजुकेशन', duration: '2 वर्ष', eligible: 'स्नातक' },
+        { short: 'डी.एड.', name: 'डिप्लोमा इन एजुकेशन', duration: '2 वर्ष', eligible: '10+2' },
+        { short: 'बी.ए.बी.एड.', name: 'एकीकृत बीए + बीएड', duration: '4 वर्ष', eligible: '10+2' },
+      ],
+    },
+    {
+      id: 'special',
+      icon: '♿',
+      category: 'विशेष शिक्षा',
+      accent: '#1A2B4A',
+      bg: '#EEF2FA',
+      programs: [
+        { short: 'डी.एड. विशेष HI/VI', name: 'विशेष शिक्षा डिप्लोमा', duration: '2 वर्ष', eligible: '12वीं' },
+        { short: 'बी.एड. विशेष VI', name: 'बी.एड. विशेष शिक्षा', duration: 'बी.एड. अवधि', eligible: 'स्नातक' },
+        { short: 'बीए/बीएससी/बीकॉम बी.एड.', name: 'एकीकृत विशेष शिक्षा', duration: '4 वर्ष', eligible: '12वीं' },
+      ],
+    },
+    {
+      id: 'technical',
+      icon: '⚙️',
+      category: 'तकनीकी एवं व्यावसायिक',
+      accent: '#E87722',
+      bg: '#FEF3EB',
+      programs: [
+        { short: 'ITI इलेक्ट्रीशियन', name: 'इलेक्ट्रीशियन ट्रेड', duration: '2 वर्ष', eligible: '8वीं पास' },
+        { short: 'ITI फिटर', name: 'फिटर ट्रेड', duration: '2 वर्ष', eligible: '8वीं पास' },
+        { short: 'OT टेक्नीशियन', name: 'ऑपरेशन थिएटर टेक.', duration: '1 वर्ष', eligible: '12वीं Bio' },
+      ],
+    },
+    {
+      id: 'medical',
+      icon: '💊',
+      category: 'चिकित्सा एवं पैरामेडिकल',
+      accent: '#1A2B4A',
+      bg: '#EEF2FA',
+      programs: [
+        { short: 'डी-फार्मा', name: 'डिप्लोमा इन फार्मेसी', duration: '2 वर्ष', eligible: '12वीं Bio/Math' },
+        { short: 'DMLT', name: 'डिप्लोमा मेडिकल लैब टेक.', duration: '2 वर्ष', eligible: '12वीं Bio' },
+        { short: 'BMLT', name: 'बैचलर मेडिकल लैब टेक.', duration: '3 वर्ष', eligible: '12वीं Bio' },
+      ],
+    },
   ],
 };
 
@@ -114,16 +145,7 @@ export default function HomePage() {
   const T = translations[lang];
   const Th = T.home;
   const Tc = T.common;
-  const programs = homeProgramData[lang];
-
-  const [slide, setSlide] = useState(0);
-  const nextSlide = useCallback(() => setSlide((s) => (s + 1) % bannerSlides.length), []);
-  const prevSlide = () => setSlide((s) => (s - 1 + bannerSlides.length) % bannerSlides.length);
-
-  useEffect(() => {
-    const t = setInterval(nextSlide, 6000);
-    return () => clearInterval(t);
-  }, [nextSlide]);
+  const categories = homeCategories[lang];
 
   const stats = [
     { value: '500+', label: Th.statsStudents },
@@ -136,55 +158,15 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        {/* HERO — pure banner slider, no overlay, no text on top */}
+        {/* HERO — clean banner image, no overlay */}
         <section className="relative overflow-hidden" style={{ background: '#ffffff' }}>
-          {/* Banner images */}
-          <div className="relative w-full" style={{ minHeight: '200px' }}>
-            {bannerSlides.map((s, i) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={s.file}
-                src={`/images/${s.file}`}
-                alt={s.alt}
-                className="w-full object-contain transition-opacity duration-700"
-                style={{ opacity: i === slide ? 1 : 0, position: i === 0 ? 'relative' : 'absolute', top: 0, left: 0 }}
-              />
-            ))}
-
-            {/* Prev / Next arrows */}
-            <button
-              onClick={prevSlide}
-              aria-label="Previous"
-              className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full text-white transition-all hover:scale-110"
-              style={{ background: 'rgba(0,0,0,0.35)', zIndex: 2 }}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={nextSlide}
-              aria-label="Next"
-              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full text-white transition-all hover:scale-110"
-              style={{ background: 'rgba(0,0,0,0.35)', zIndex: 2 }}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Slide dots */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2" style={{ zIndex: 2 }}>
-              {bannerSlides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSlide(i)}
-                  aria-label={`Slide ${i + 1}`}
-                  className="w-2.5 h-2.5 rounded-full transition-all"
-                  style={{ background: i === slide ? '#E87722' : 'rgba(0,0,0,0.3)' }}
-                />
-              ))}
-            </div>
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/banner-01.jpeg"
+              alt="Swami Vivekanand Mahavidyalaya Panna — Admissions Open"
+              className="w-full object-contain"
+            />
           </div>
 
           {/* CTA strip below the banner */}
@@ -202,6 +184,15 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScjuIN1EUS1AXM9L8Ie61_wYjs_VpPlhmcipj5WFJQZbQk12w/viewform?usp=header"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-white border-2 transition-all hover:bg-white/10"
+              style={{ borderColor: 'rgba(255,255,255,0.4)' }}
+            >
+              {lang === 'hi' ? 'परामर्श फॉर्म' : 'Counselling Form'}
+            </a>
             <Link
               href="/courses"
               className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-white border-2 transition-all hover:bg-white/10"
@@ -222,6 +213,91 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* QUICK LINKS STRIP */}
+        <section
+          className="py-5 border-b"
+          style={{ background: '#F7F3EE', borderColor: '#E8DDD0' }}
+        >
+          <div className="max-w-7xl mx-auto px-4">
+            {/* Mobile: horizontal scroll; md+: flex centered */}
+            <div className="flex items-center gap-8 md:gap-12 md:justify-center overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
+              {[
+                {
+                  label: lang === 'hi' ? 'पाठ्यक्रम' : 'Courses',
+                  href: '/courses',
+                  icon: (
+                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
+                      <path d="M10 2L2 6l8 4 8-4-8-4z" fill="#E87722" />
+                      <path d="M2 10l8 4 8-4" stroke="#E87722" strokeWidth="1.5" strokeLinecap="round" />
+                      <path d="M2 14l8 4 8-4" stroke="#E87722" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: lang === 'hi' ? 'प्रवेश' : 'Admissions',
+                  href: '/admissions',
+                  icon: (
+                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
+                      <rect x="3" y="4" width="14" height="13" rx="2" stroke="#E87722" strokeWidth="1.5" />
+                      <path d="M7 9h6M7 12h4" stroke="#E87722" strokeWidth="1.5" strokeLinecap="round" />
+                      <circle cx="10" cy="2.5" r="1.5" fill="#E87722" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: lang === 'hi' ? 'शुल्क संरचना' : 'Fee Structure',
+                  href: '/courses#fee',
+                  icon: (
+                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
+                      <circle cx="10" cy="10" r="8" stroke="#E87722" strokeWidth="1.5" />
+                      <path d="M10 6v1.5M10 12.5V14M7.5 8.5a2.5 2.5 0 015 0c0 1.5-2.5 2-2.5 3.5" stroke="#E87722" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: lang === 'hi' ? 'परामर्शदाता' : 'Contact Counsellor',
+                  href: '/contact',
+                  icon: (
+                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
+                      <path d="M4 4h12a1 1 0 011 1v8a1 1 0 01-1 1H7l-4 3V5a1 1 0 011-1z" stroke="#E87722" strokeWidth="1.5" strokeLinejoin="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: lang === 'hi' ? 'दूरस्थ शिक्षा' : 'Distance Learning',
+                  href: '/distance-learning',
+                  icon: (
+                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
+                      <circle cx="10" cy="10" r="7" stroke="#E87722" strokeWidth="1.5" />
+                      <ellipse cx="10" cy="10" rx="3.5" ry="7" stroke="#E87722" strokeWidth="1" />
+                      <path d="M3 10h14" stroke="#E87722" strokeWidth="1" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="flex flex-col items-center gap-2 flex-shrink-0 group"
+                >
+                  <div
+                    className="w-11 h-11 rounded-full flex items-center justify-center transition-all group-hover:scale-110"
+                    style={{ background: 'rgba(232,119,34,0.12)' }}
+                  >
+                    {item.icon}
+                  </div>
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors group-hover:text-[#E87722]"
+                    style={{ color: '#1A2B4A' }}
+                  >
+                    {item.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* STATS BAR */}
         <section
           className="py-10"
@@ -237,7 +313,7 @@ export default function HomePage() {
                   >
                     {stat.value}
                   </div>
-                  <div className="text-xs font-medium mt-1 tracking-wide" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                  <div className="text-sm font-medium mt-1 tracking-wide" style={{ color: 'rgba(255,255,255,0.8)' }}>
                     {stat.label}
                   </div>
                 </div>
@@ -260,49 +336,51 @@ export default function HomePage() {
                 {Th.programsTitle}
               </h2>
               <div className="w-14 h-1 mx-auto rounded-full" style={{ background: '#E87722' }} />
-              <p className="text-gray-500 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
+              <p className="text-gray-500 mt-4 max-w-xl mx-auto text-base leading-relaxed">
                 {Th.programsDesc}
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-              {programs.map((p, i) => {
-                const meta = programMeta[i];
-                return (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {categories.map((cat) => (
+                <div
+                  key={cat.id}
+                  className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                  style={{ borderTop: `4px solid ${cat.accent}` }}
+                >
                   <div
-                    key={meta.id}
-                    className="program-card bg-white border border-gray-100 rounded-2xl p-6 shadow-sm"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4"
+                    style={{ background: cat.bg }}
                   >
-                    <div
-                      className="flex items-center justify-center mb-4"
-                      style={{ background: meta.iconBg, width: 52, height: 52, borderRadius: 14 }}
-                    >
-                      {programIcons[i]}
-                    </div>
-                    <div
-                      className="h-0.5 rounded-full mb-3"
-                      style={{ width: 36, background: '#E87722', transition: 'width 0.4s ease' }}
-                    />
-                    <h3 className="font-bold text-lg mb-0.5" style={{ color: '#1A2B4A' }}>
-                      {meta.short}
-                    </h3>
-                    <p className="text-xs text-gray-400 mb-2">{p.name}</p>
-                    <span
-                      className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-3"
-                      style={{ background: meta.badgeBg, color: meta.badgeColor }}
-                    >
-                      {p.badge}
-                    </span>
-                    <p className="text-xs text-gray-600 mb-4 leading-relaxed">{p.desc}</p>
-                    <Link
-                      href={`/courses#${meta.id}`}
-                      className="text-xs font-semibold flex items-center gap-1 transition-all hover:gap-2"
-                      style={{ color: '#E87722' }}
-                    >
-                      {Tc.learnMore}
-                    </Link>
+                    {cat.icon}
                   </div>
-                );
-              })}
+                  <h3 className="font-bold text-lg mb-4" style={{ color: '#1A2B4A', fontFamily: '"DM Serif Display", serif' }}>
+                    {cat.category}
+                  </h3>
+                  <ul className="space-y-3 mb-5">
+                    {cat.programs.map((p) => (
+                      <li key={p.short} className="flex items-start justify-between gap-2">
+                        <div>
+                          <div className="font-semibold text-sm" style={{ color: '#1A2B4A' }}>{p.short}</div>
+                          <div className="text-xs text-gray-500">{p.name}</div>
+                        </div>
+                        <span
+                          className="text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0 mt-0.5"
+                          style={{ background: cat.bg, color: cat.accent }}
+                        >
+                          {p.duration}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={`/courses#${cat.id}`}
+                    className="text-sm font-semibold flex items-center gap-1 transition-all hover:gap-2"
+                    style={{ color: cat.accent }}
+                  >
+                    {Tc.learnMore}
+                  </Link>
+                </div>
+              ))}
             </div>
             <div className="text-center mt-10">
               <Link
@@ -377,10 +455,10 @@ export default function HomePage() {
                     {Th.aboutTitle2}
                   </em>
                 </h2>
-                <p className="text-gray-600 leading-relaxed mb-4 text-sm">
+                <p className="text-gray-600 leading-relaxed mb-4 text-base">
                   {Th.aboutPara1}
                 </p>
-                <p className="text-gray-600 leading-relaxed mb-7 text-sm">
+                <p className="text-gray-600 leading-relaxed mb-7 text-base">
                   {Th.aboutPara2}
                 </p>
                 <div className="grid grid-cols-2 gap-4 mb-8">
@@ -484,7 +562,7 @@ export default function HomePage() {
               >
                 {Th.affiliationsTitle}
               </h2>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500 text-base">
                 {Th.affiliationsDesc}
               </p>
             </div>
@@ -495,9 +573,70 @@ export default function HomePage() {
                   <div className="font-bold text-sm mb-1" style={{ color: '#1A2B4A' }}>
                     {a.short}
                   </div>
-                  <div className="text-xs text-gray-500">{a.name}</div>
+                  <div className="text-sm text-gray-500">{a.name}</div>
                 </div>
               ))}
+            </div>
+
+            {/* Affiliation Certificates */}
+            <div className="mt-16">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex-1 h-px" style={{ background: '#E8DDD0' }} />
+                <div className="text-center">
+                  <div className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: '#E87722' }}>
+                    {lang === 'hi' ? 'आधिकारिक दस्तावेज़' : 'Official Documents'}
+                  </div>
+                  <h3
+                    className="text-xl font-bold"
+                    style={{ fontFamily: '"DM Serif Display", serif', color: '#1A2B4A' }}
+                  >
+                    {lang === 'hi' ? 'संबद्धता प्रमाण पत्र' : 'Affiliation Certificates'}
+                  </h3>
+                </div>
+                <div className="flex-1 h-px" style={{ background: '#E8DDD0' }} />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {affiliationCertificates.map((cert) => (
+                  <a
+                    key={cert.url}
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 rounded-xl p-4 border transition-all hover:shadow-md hover:scale-[1.01] group"
+                    style={{ borderColor: '#E8DDD0', background: '#FAFAFA' }}
+                  >
+                    <div
+                      className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center"
+                      style={{ background: cert.bg }}
+                    >
+                      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
+                        <rect x="4" y="2" width="12" height="17" rx="1.5" stroke={cert.color} strokeWidth="1.5" />
+                        <path d="M14 2l4 4h-4V2z" fill={cert.color} fillOpacity="0.25" stroke={cert.color} strokeWidth="1" />
+                        <path d="M7 11h6M7 14h4" stroke={cert.color} strokeWidth="1.2" strokeLinecap="round" />
+                      </svg>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div
+                        className="text-xs font-bold uppercase tracking-wide mb-0.5"
+                        style={{ color: cert.color }}
+                      >
+                        {cert.program}
+                      </div>
+                      <div className="font-semibold text-sm" style={{ color: '#1A2B4A' }}>
+                        {cert.label}
+                      </div>
+                      <div className="text-xs mt-0.5 text-gray-400">MCBU Affiliation · PDF</div>
+                    </div>
+                    <svg
+                      className="w-5 h-5 flex-shrink-0 text-gray-300 transition-transform group-hover:translate-x-1 group-hover:text-[#E87722]"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -516,7 +655,7 @@ export default function HomePage() {
                 {Th.campusLifeTitle}
               </h2>
               <div className="w-14 h-1 mx-auto mt-4 rounded-full" style={{ background: '#E87722' }} />
-              <p className="text-sm text-gray-500 mt-3">
+              <p className="text-base text-gray-500 mt-3">
                 {Th.campusLifeDesc}
               </p>
             </div>

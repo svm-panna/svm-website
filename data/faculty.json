@@ -1,22 +1,114 @@
 [
   {
     "id": "1",
-    "name": "Dr. Arvind Singh",
+    "name": "Dr. Saurabh Agrawal",
+    "role": "principal",
     "designation": "Principal",
-    "qualifications": "Ph.D.(Education), M.A.(Psychology), M.A.(Economics), M.A.(Education), PG Diploma(Yoga), M.Sc.(Physics)",
-    "specialization": "Education Psychology, Yoga Education",
-    "email": "",
-    "photo": "",
     "order": 1
   },
   {
     "id": "2",
-    "name": "Sanjay Singh Lodhi",
-    "designation": "Head of Institution",
-    "qualifications": "M.Ed",
-    "specialization": "Educational Administration",
-    "email": "",
-    "photo": "",
+    "name": "Anju Lata Pyasi",
+    "role": "lecturer",
+    "designation": "Lecturer",
     "order": 2
+  },
+  {
+    "id": "3",
+    "name": "Shubhra Singh",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 3
+  },
+  {
+    "id": "4",
+    "name": "Rajkaran Prajapati",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 4
+  },
+  {
+    "id": "5",
+    "name": "Aruna Gupta",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 5
+  },
+  {
+    "id": "6",
+    "name": "Rajesh Kumar Rajpoot",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 6
+  },
+  {
+    "id": "7",
+    "name": "Ram Avtar Gupta",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 7
+  },
+  {
+    "id": "8",
+    "name": "Ratnesh Shrivastava",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 8
+  },
+  {
+    "id": "9",
+    "name": "Prem Mohan Sharma",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 9
+  },
+  {
+    "id": "10",
+    "name": "Birendra Kumar Yadav",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 10
+  },
+  {
+    "id": "11",
+    "name": "Kumar Gaurav Singh",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 11
+  },
+  {
+    "id": "12",
+    "name": "Swadesh Kumar Singh",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 12
+  },
+  {
+    "id": "13",
+    "name": "Brajendra Singh",
+    "role": "lecturer",
+    "designation": "Lecturer",
+    "order": 13
+  },
+  {
+    "id": "14",
+    "name": "Nidhi Rai",
+    "role": "specialized",
+    "designation": "Sport Teacher",
+    "order": 14
+  },
+  {
+    "id": "15",
+    "name": "Archana Dubey",
+    "role": "specialized",
+    "designation": "Music Teacher",
+    "order": 15
+  },
+  {
+    "id": "16",
+    "name": "Swati Singh",
+    "role": "specialized",
+    "designation": "Craft Teacher",
+    "order": 16
   }
 ]

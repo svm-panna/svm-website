@@ -60,8 +60,8 @@ export default function ContactPage() {
                     <h3 className="text-sm font-medium text-gray-900">Phone</h3>
                   </div>
                   <div className="space-y-1 text-xs text-gray-600">
-                    <a href="tel:+917987021244" className="block hover:text-brand-600">+91-7987021244</a>
-                    <a href="tel:+918641044597" className="block hover:text-brand-600">+91-8641044597</a>
+                    <a href="tel:+917999404729" className="block hover:text-brand-600">+91-7999404729</a>
+                    <a href="tel:+918641044697" className="block hover:text-brand-600">+91-8641044697</a>
                     <p className="text-gray-400">(STD: 07732 — 254002)</p>
                   </div>
                 </div>

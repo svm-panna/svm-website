@@ -83,13 +83,13 @@ export default function ContactPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
               {/* Phone */}
               <a
-                href="tel:+917987021244"
+                href="tel:+917999404729"
                 className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm text-center block transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4" style={{ background: '#FEF3EB' }}>📞</div>
                 <h3 className="font-bold mb-2" style={{ color: '#1A2B4A' }}>Call Us</h3>
-                <div className="text-sm font-medium mb-1" style={{ color: '#E87722' }}>+91-7987021244</div>
-                <div className="text-sm" style={{ color: '#E87722' }}>+91-9425168440</div>
+                <div className="text-sm font-medium mb-1" style={{ color: '#E87722' }}>+91-7999404729</div>
+                <div className="text-sm" style={{ color: '#E87722' }}>+91-8641044697</div>
                 <div className="text-xs text-gray-400 mt-2">Mon–Sat, 10AM–6PM</div>
               </a>
 
@@ -324,8 +324,8 @@ export default function ContactPage() {
                 </div>
                 <div className="font-bold text-sm mb-0.5" style={{ color: '#1A2B4A' }}>Dr. Arvind Singh</div>
                 <div className="text-xs text-gray-500 mb-3">Director (Ph.D.)</div>
-                <a href="tel:+917987021244" className="text-xs font-semibold" style={{ color: '#E87722' }}>
-                  +91-7987021244
+                <a href="tel:+917999404729" className="text-xs font-semibold" style={{ color: '#E87722' }}>
+                  +91-7999404729
                 </a>
               </div>
               <div className="bg-white rounded-2xl p-5 text-center border border-gray-100 shadow-sm">
