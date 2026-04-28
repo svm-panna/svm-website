@@ -81,7 +81,7 @@ const courseCategories = [
 ];
 
 const eligibleGroups = [
-  { icon: '💼', en: 'Businesspersons (व्यवसायी)', hi: 'व्यवसायी' },
+  { icon: '💼', en: 'Business persons (व्यवसायी)', hi: 'व्यवसायी' },
   { icon: '👔', en: 'Working Professionals (सेवाकार)', hi: 'सेवाकार' },
   { icon: '🏠', en: 'Homemakers (गृहणी)', hi: 'गृहणी' },
   { icon: '🌾', en: 'Farmers (किसान)', hi: 'किसान' },

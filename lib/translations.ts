@@ -242,7 +242,7 @@ const en = {
     whoCanApply: 'Who Can Apply',
     eligibilityTitle: 'Eligibility Criteria',
     needHelp: 'Need Help?',
-    needHelpDesc: 'Contact Dr. Arvind Singh for admissions guidance',
+    needHelpDesc: 'Contact Admission Office for admissions guidance',
     stepByStep: 'Step by Step',
     admissionProcess: 'Admission Process',
     bePrepared: 'Be Prepared',

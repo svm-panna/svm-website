@@ -113,7 +113,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="px-3 py-2 text-base rounded-lg transition-colors"
+                    className="px-3 py-2 text-base rounded-lg transition-colors text-center"
                     style={
                       active
                         ? { color: '#E87722', background: '#FEF3EB', fontWeight: 600 }
