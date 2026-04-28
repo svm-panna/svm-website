@@ -45,7 +45,6 @@ const courseCategories = {
       programs: [
         { id: 'iti-electrician', short: 'ITI Electrician', name: 'Electrician Trade', duration: '2 Yrs', seats: '30', eligible: 'Class 8 Pass', badge: 'DVET Certified' },
         { id: 'iti-fitter', short: 'ITI Fitter', name: 'Fitter Trade', duration: '2 Yrs', seats: '30', eligible: 'Class 10 Pass', badge: 'DVET Certified' },
-        { id: 'ot-tech', short: 'OT Technician', name: 'Operation Theatre Technician', duration: '1 Yr', seats: '30', eligible: '12th Bio/Math', badge: 'State Board' },
       ],
     },
     {
@@ -59,6 +58,7 @@ const courseCategories = {
         { id: 'dpharma', short: 'D-Pharma', name: 'Diploma in Pharmacy', duration: '2 Yrs', seats: '60', eligible: '12th Bio/Math (50%)', badge: 'PCI Approved' },
         { id: 'dmlt', short: 'DMLT', name: 'Diploma Medical Lab Technology', duration: '2 Yrs', seats: '30', eligible: '12th Bio (50%)', badge: 'State Board' },
         { id: 'bmlt', short: 'BMLT', name: 'Bachelor Medical Lab Technology', duration: '3 Yrs', seats: '30', eligible: '12th Bio (50%)', badge: 'State Board' },
+        { id: 'ot-tech', short: 'OT Technician', name: 'Operation Theatre Technician', duration: '1 Yr', seats: '30', eligible: '12th Bio/Math', badge: 'State Board' },
       ],
     },
   ],
@@ -99,13 +99,12 @@ const courseCategories = {
       programs: [
         { id: 'iti-electrician', short: 'ITI इलेक्ट्रीशियन', name: 'इलेक्ट्रीशियन ट्रेड', duration: '2 वर्ष', seats: '30', eligible: 'कक्षा 8 पास', badge: 'DVET प्रमाणित' },
         { id: 'iti-fitter', short: 'ITI फिटर', name: 'फिटर ट्रेड', duration: '2 वर्ष', seats: '30', eligible: 'कक्षा 10 पास', badge: 'DVET प्रमाणित' },
-        { id: 'ot-tech', short: 'OT टेकनीशियन', name: 'ऑपरेशन थिएटर टेक्नीशियन', duration: '1 वर्ष', seats: '30', eligible: '12वीं Bio/Math', badge: 'राज्य बोर्ड' },
       ],
     },
     {
       id: 'medical',
       icon: '💊',
-      title: 'चिकित्सा और पैरामेडिकल',
+      title: 'चिकित्सा एवं पैरामेडिकल',
       affil: 'PCI / राज्य बोर्ड',
       accent: '#1A2B4A' as const,
       bg: '#EEF2FA',
@@ -113,6 +112,7 @@ const courseCategories = {
         { id: 'dpharma', short: 'डी-फार्मा', name: 'फार्मेसी डिप्लोमा', duration: '2 वर्ष', seats: '60', eligible: '12वीं Bio/Math (50%)', badge: 'PCI अनुमोदित' },
         { id: 'dmlt', short: 'DMLT', name: 'डिप्लोमा मेडिकल लैब टेक्नोलॉजी', duration: '2 वर्ष', seats: '30', eligible: '12वीं Bio (50%)', badge: 'राज्य बोर्ड' },
         { id: 'bmlt', short: 'BMLT', name: 'बैचलर मेडिकल लैब टेक्नोलॉजी', duration: '3 वर्ष', seats: '30', eligible: '12वीं Bio (50%)', badge: 'राज्य बोर्ड' },
+        { id: 'ot-tech', short: 'OT टेकनीशियन', name: 'ऑपरेशन थिएटर टेक्नीशियन', duration: '1 वर्ष', seats: '30', eligible: '12वीं Bio/Math', badge: 'राज्य बोर्ड' },
       ],
     },
   ],
@@ -129,16 +129,6 @@ export default function CoursesPage() {
     <>
       <Navbar />
       <main>
-        {/* BANNER IMAGE */}
-        <div className="w-full">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/banner-01.jpeg"
-            alt="Swami Vivekanand College Panna — Campus Programs"
-            className="w-full object-contain"
-          />
-        </div>
-
         {/* PAGE HERO */}
         <section
           className="page-hero-pattern py-16"
@@ -176,6 +166,16 @@ export default function CoursesPage() {
             </Link>
           </div>
         </section>
+
+        {/* BANNER IMAGE */}
+        <div className="w-full">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/banner-01.jpeg"
+            alt="Swami Vivekanand College Panna — Campus Programs"
+            className="w-full object-contain"
+          />
+        </div>
 
         {/* PROGRAMS DETAIL — CATEGORY SECTIONS */}
         <section className="py-20 bg-white">

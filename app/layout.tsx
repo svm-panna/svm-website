@@ -26,6 +26,11 @@ export const metadata: Metadata = {
     title: 'Swami Vivekanand Mahavidyalaya — Panna, MP',
     description: 'Shaping the teachers of tomorrow. NCTE approved, Est. 2014.',
   },
+  icons: {
+    icon: '/images/favicon.png',
+    shortcut: '/images/favicon.png',
+    apple: '/images/favicon.png',
+  },
   robots: { index: true, follow: true },
 };
 

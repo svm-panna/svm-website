@@ -72,7 +72,6 @@ const homeCategories = {
       programs: [
         { short: 'ITI Electrician', name: 'Electrician Trade', duration: '2 Yrs', eligible: '8th Pass' },
         { short: 'ITI Fitter', name: 'Fitter Trade', duration: '2 Yrs', eligible: '8th Pass' },
-        { short: 'OT Technician', name: 'Operation Theatre Tech.', duration: '1 Yr', eligible: '12th Bio' },
       ],
     },
     {
@@ -85,6 +84,7 @@ const homeCategories = {
         { short: 'D-Pharma', name: 'Diploma in Pharmacy', duration: '2 Yrs', eligible: '12th Bio/Math' },
         { short: 'DMLT', name: 'Diploma Medical Lab Tech.', duration: '2 Yrs', eligible: '12th Bio' },
         { short: 'BMLT', name: 'Bachelor Medical Lab Tech.', duration: '3 Yrs', eligible: '12th Bio' },
+        { short: 'OT Technician', name: 'Operation Theatre Tech.', duration: '1 Yr', eligible: '12th Bio' },
       ],
     },
   ],
@@ -122,7 +122,6 @@ const homeCategories = {
       programs: [
         { short: 'ITI इलेक्ट्रीशियन', name: 'इलेक्ट्रीशियन ट्रेड', duration: '2 वर्ष', eligible: '8वीं पास' },
         { short: 'ITI फिटर', name: 'फिटर ट्रेड', duration: '2 वर्ष', eligible: '8वीं पास' },
-        { short: 'OT टेक्नीशियन', name: 'ऑपरेशन थिएटर टेक.', duration: '1 वर्ष', eligible: '12वीं Bio' },
       ],
     },
     {
@@ -135,6 +134,7 @@ const homeCategories = {
         { short: 'डी-फार्मा', name: 'डिप्लोमा इन फार्मेसी', duration: '2 वर्ष', eligible: '12वीं Bio/Math' },
         { short: 'DMLT', name: 'डिप्लोमा मेडिकल लैब टेक.', duration: '2 वर्ष', eligible: '12वीं Bio' },
         { short: 'BMLT', name: 'बैचलर मेडिकल लैब टेक.', duration: '3 वर्ष', eligible: '12वीं Bio' },
+        { short: 'OT टेक्नीशियन', name: 'ऑपरेशन थिएटर टेक.', duration: '1 वर्ष', eligible: '12वीं Bio' },
       ],
     },
   ],
