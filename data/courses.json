@@ -1,54 +1,314 @@
 [
   {
     "id": "bed",
-    "name": "Bachelor of Education",
-    "short": "B.Ed",
-    "duration": "2 Years",
-    "seats": 100,
-    "level": "Undergraduate",
-    "type": "Teacher Education",
-    "eligibility": "Bachelor's degree with minimum 50% marks in Sciences / Social Sciences / Humanities, or Bachelor's in Engineering/Technology with 55% marks with specialization in Science and Mathematics.",
-    "syllabus_url": "/docs/bed-syllabus.pdf",
-    "description": "The B.Ed programme prepares graduates for teaching at secondary and senior secondary levels. It combines theory with extensive practice teaching.",
-    "color": "blue"
+    "categoryId": "teacher-education",
+    "short": "B.Ed.",
+    "name": { "en": "Bachelor of Education", "hi": "शिक्षा स्नातक" },
+    "duration": { "en": "2 Years", "hi": "2 वर्ष" },
+    "seats": 50,
+    "eligible": { "en": "Graduate (50%)", "hi": "स्नातक (50%)" },
+    "badge": { "en": "NCTE Recognized", "hi": "NCTE मान्यता" },
+    "affiliation": "NCTE / MCBU",
+    "annualFee": "₹35,000",
+    "examFee": { "en": "As per MCBU", "hi": "MCBU के अनुसार" },
+    "totalFee": "₹70,000",
+    "description": {
+      "en": "The B.Ed. programme prepares graduates for teaching at secondary and senior secondary levels. It combines educational theory with extensive practice teaching internships.",
+      "hi": "बी.एड. कार्यक्रम स्नातकों को माध्यमिक और वरिष्ठ माध्यमिक स्तर पर अध्यापन के लिए तैयार करता है। इसमें शैक्षिक सिद्धांत और व्यापक अभ्यास-शिक्षण का संयोजन होता है।"
+    },
+    "highlights": [
+      { "en": "NCTE & MCBU recognized", "hi": "NCTE और MCBU मान्यता प्राप्त" },
+      { "en": "Practice teaching internship", "hi": "अभ्यास शिक्षण प्रशिक्षण" },
+      { "en": "Eligible for MPTET / CTET", "hi": "MPTET / CTET के लिए पात्र" },
+      { "en": "50 intake seats", "hi": "50 प्रवेश सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 1
   },
   {
-    "id": "med",
-    "name": "Master of Education",
-    "short": "M.Ed",
-    "duration": "2 Years",
+    "id": "deled",
+    "categoryId": "teacher-education",
+    "short": "D.El.Ed.",
+    "name": { "en": "Diploma in Elementary Education", "hi": "प्राथमिक शिक्षा डिप्लोमा" },
+    "duration": { "en": "2 Years", "hi": "2 वर्ष" },
     "seats": 50,
-    "level": "Postgraduate",
-    "type": "Teacher Education",
-    "eligibility": "B.Ed / B.A.B.Ed / B.Sc.B.Ed / B.El.Ed with minimum 50% marks, or D.El.Ed with an undergraduate degree (50% each).",
-    "syllabus_url": "/docs/med-syllabus.pdf",
-    "description": "M.Ed is a postgraduate research-oriented programme focusing on advanced educational theory, research methodology, and curriculum development.",
-    "color": "teal"
+    "eligible": { "en": "10+2 (50%)", "hi": "10+2 (50%)" },
+    "badge": { "en": "NCTE Recognized", "hi": "NCTE मान्यता" },
+    "affiliation": "NCTE / MP Board",
+    "annualFee": "₹30,000",
+    "examFee": { "en": "As per MP Board", "hi": "MP बोर्ड के अनुसार" },
+    "totalFee": "₹60,000",
+    "description": {
+      "en": "D.El.Ed. trains teachers for primary and upper primary levels (Classes 1–8). Recognized by NCTE and fulfills the mandatory qualification for government primary school teachers.",
+      "hi": "डी.एल.एड. प्राथमिक और उच्च प्राथमिक स्तर (कक्षा 1-8) के लिए शिक्षकों को प्रशिक्षित करता है। NCTE मान्यता प्राप्त, सरकारी प्राथमिक शिक्षकों के लिए अनिवार्य योग्यता।"
+    },
+    "highlights": [
+      { "en": "Required for Govt. primary school jobs", "hi": "सरकारी प्राथमिक शिक्षक पद के लिए अनिवार्य" },
+      { "en": "NCTE recognized", "hi": "NCTE मान्यता प्राप्त" },
+      { "en": "Eligibility for MPTET Paper-I", "hi": "MPTET पेपर-I के लिए पात्रता" },
+      { "en": "50 intake seats", "hi": "50 प्रवेश सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 2
   },
   {
     "id": "babed",
-    "name": "Bachelor of Arts & Bachelor of Education",
-    "short": "BA B.Ed",
-    "duration": "4 Years",
-    "seats": 100,
-    "level": "Integrated Undergraduate",
-    "type": "Integrated Teacher Education",
-    "eligibility": "Minimum 50% marks in Class 12 (10+2) or equivalent from a recognised board.",
-    "syllabus_url": "/docs/babed-syllabus.pdf",
-    "description": "An integrated 4-year programme combining Arts subjects with professional teacher education — ideal for students who want to pursue teaching from the beginning.",
-    "color": "amber"
+    "categoryId": "teacher-education",
+    "short": "B.A.B.Ed.",
+    "name": { "en": "Integrated BA + B.Ed.", "hi": "एकीकृत बी.ए. + बी.एड." },
+    "duration": { "en": "4 Years", "hi": "4 वर्ष" },
+    "seats": 40,
+    "eligible": { "en": "10+2 (50%)", "hi": "10+2 (50%)" },
+    "badge": { "en": "NCTE Recognized", "hi": "NCTE मान्यता" },
+    "affiliation": "NCTE / MCBU",
+    "annualFee": "₹22,000",
+    "examFee": { "en": "As per MCBU", "hi": "MCBU के अनुसार" },
+    "totalFee": "₹88,000",
+    "description": {
+      "en": "An integrated 4-year programme combining Arts subjects with professional teacher education. Ideal for students who want to pursue teaching right after Class 12.",
+      "hi": "4 वर्षीय एकीकृत कार्यक्रम जिसमें कला विषयों और पेशेवर शिक्षक शिक्षा का संयोजन है। 12वीं के बाद शिक्षण में करियर बनाने के इच्छुक छात्रों के लिए आदर्श।"
+    },
+    "highlights": [
+      { "en": "Dual degree: BA + B.Ed.", "hi": "दोहरी डिग्री: बी.ए. + बी.एड." },
+      { "en": "NCTE recognized 4-year integrated", "hi": "NCTE मान्यता प्राप्त 4 वर्षीय एकीकृत" },
+      { "en": "Cost-effective vs. separate degrees", "hi": "अलग डिग्री से कम खर्चीला" },
+      { "en": "40 intake seats", "hi": "40 प्रवेश सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 3
   },
   {
-    "id": "bscbed",
-    "name": "Bachelor of Science & Bachelor of Education",
-    "short": "B.Sc B.Ed",
-    "duration": "4 Years",
-    "seats": 100,
-    "level": "Integrated Undergraduate",
-    "type": "Integrated Teacher Education",
-    "eligibility": "Minimum 50% marks in Class 12 (10+2) with Science subjects (Physics, Chemistry, Biology/Mathematics) from a recognised board.",
-    "syllabus_url": "/docs/bscbed-syllabus.pdf",
-    "description": "An integrated 4-year programme combining Science subjects with professional teacher education, approved by NCTE and affiliated to Maharaja Chhatrasal Bundelkhand University.",
-    "color": "purple"
+    "id": "ded-spl-hivi",
+    "categoryId": "special-education",
+    "short": "D.Ed. Spl. HI/VI",
+    "name": { "en": "Special Education Diploma (HI/VI)", "hi": "विशेष शिक्षा डिप्लोमा (HI/VI)" },
+    "duration": { "en": "2 Years", "hi": "2 वर्ष" },
+    "seats": 25,
+    "eligible": { "en": "12th Pass (50%)", "hi": "12वीं पास (50%)" },
+    "badge": { "en": "NCTE Recognized", "hi": "NCTE मान्यता" },
+    "affiliation": "NCTE / MP Board",
+    "annualFee": "₹40,000",
+    "examFee": { "en": "As per MP Board", "hi": "MP बोर्ड के अनुसार" },
+    "totalFee": "₹80,000",
+    "description": {
+      "en": "Diploma programme in Special Education for Hearing Impaired (HI) and Visually Impaired (VI) learners. Trains educators in inclusive and adaptive teaching methods.",
+      "hi": "श्रवण बाधित (HI) और दृष्टिबाधित (VI) शिक्षार्थियों के लिए विशेष शिक्षा डिप्लोमा। समावेशी और अनुकूली शिक्षण पद्धतियों में शिक्षकों को प्रशिक्षित करता है।"
+    },
+    "highlights": [
+      { "en": "Specialized for HI & VI learners", "hi": "HI और VI शिक्षार्थियों के लिए विशेष" },
+      { "en": "NCTE recognized", "hi": "NCTE मान्यता प्राप्त" },
+      { "en": "Inclusive education techniques", "hi": "समावेशी शिक्षण तकनीकें" },
+      { "en": "25 intake seats", "hi": "25 प्रवेश सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 4
+  },
+  {
+    "id": "bed-spl-vi",
+    "categoryId": "special-education",
+    "short": "B.Ed. Spl. VI",
+    "name": { "en": "B.Ed. Special Education (Visual Impairment)", "hi": "बी.एड. विशेष शिक्षा (दृष्टिबाधित)" },
+    "duration": { "en": "2 Years", "hi": "2 वर्ष" },
+    "seats": 25,
+    "eligible": { "en": "Graduate (50%)", "hi": "स्नातक (50%)" },
+    "badge": { "en": "NCTE Recognized", "hi": "NCTE मान्यता" },
+    "affiliation": "NCTE / MCBU",
+    "annualFee": "₹40,000",
+    "examFee": { "en": "As per MCBU", "hi": "MCBU के अनुसार" },
+    "totalFee": "₹80,000",
+    "description": {
+      "en": "B.Ed. specialization in Visual Impairment. Prepares educators to teach visually impaired students using adaptive technologies and specialized pedagogical methods.",
+      "hi": "दृष्टिबाधितता में बी.एड. विशेषज्ञता। अनुकूली तकनीकों और विशेष शिक्षाशास्त्र पद्धतियों से दृष्टिबाधित छात्रों को पढ़ाने के लिए शिक्षकों को तैयार करता है।"
+    },
+    "highlights": [
+      { "en": "Braille and adaptive technology", "hi": "ब्रेल और अनुकूली प्रौद्योगिकी" },
+      { "en": "Graduate-level professional degree", "hi": "स्नातक स्तरीय पेशेवर डिग्री" },
+      { "en": "NCTE recognized", "hi": "NCTE मान्यता प्राप्त" },
+      { "en": "25 intake seats", "hi": "25 प्रवेश सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 5
+  },
+  {
+    "id": "int-spl",
+    "categoryId": "special-education",
+    "short": "BA/BSc/BCom B.Ed. Spl.",
+    "name": { "en": "Integrated Special Education (HI/VI)", "hi": "एकीकृत विशेष शिक्षा (HI/VI)" },
+    "duration": { "en": "4 Years", "hi": "4 वर्ष" },
+    "seats": 25,
+    "eligible": { "en": "12th Pass (50%)", "hi": "12वीं पास (50%)" },
+    "badge": { "en": "NCTE Recognized", "hi": "NCTE मान्यता" },
+    "affiliation": "NCTE / MCBU",
+    "annualFee": "₹22,000",
+    "examFee": { "en": "As per MCBU", "hi": "MCBU के अनुसार" },
+    "totalFee": "₹88,000",
+    "description": {
+      "en": "Integrated 4-year programme combining BA/BSc/BCom with B.Ed. in Special Education. Available in both Hearing Impairment and Visual Impairment specializations.",
+      "hi": "4 वर्षीय एकीकृत कार्यक्रम जिसमें BA/BSc/BCom को विशेष शिक्षा बी.एड. के साथ जोड़ा गया है। श्रवण बाधित और दृष्टिबाधित दोनों विशेषज्ञताओं में उपलब्ध।"
+    },
+    "highlights": [
+      { "en": "Dual degree: Graduation + B.Ed. Spl.", "hi": "दोहरी डिग्री: स्नातक + बी.एड. विशेष" },
+      { "en": "HI and VI specializations available", "hi": "HI और VI दोनों विशेषज्ञताएं उपलब्ध" },
+      { "en": "NCTE recognized 4-year integrated", "hi": "NCTE मान्यता प्राप्त 4 वर्षीय एकीकृत" },
+      { "en": "25 seats per specialization", "hi": "प्रत्येक विशेषज्ञता में 25 सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 6
+  },
+  {
+    "id": "iti-electrician",
+    "categoryId": "technical-vocational",
+    "short": "ITI Electrician",
+    "name": { "en": "Electrician Trade", "hi": "इलेक्ट्रीशियन ट्रेड" },
+    "duration": { "en": "2 Years", "hi": "2 वर्ष" },
+    "seats": 30,
+    "eligible": { "en": "Class 8 Pass", "hi": "कक्षा 8 पास" },
+    "badge": { "en": "DVET Certified", "hi": "DVET प्रमाणित" },
+    "affiliation": "DVET / State Board",
+    "annualFee": "Contact College",
+    "examFee": { "en": "As per DVET", "hi": "DVET के अनुसार" },
+    "totalFee": "—",
+    "description": {
+      "en": "ITI Electrician trade programme covering domestic and industrial wiring, electrical systems maintenance, and safety standards. DVET certified vocational training.",
+      "hi": "ITI इलेक्ट्रीशियन ट्रेड प्रोग्राम जिसमें घरेलू और औद्योगिक वायरिंग, विद्युत प्रणाली रखरखाव और सुरक्षा मानक शामिल हैं।"
+    },
+    "highlights": [
+      { "en": "DVET certified vocational training", "hi": "DVET प्रमाणित व्यावसायिक प्रशिक्षण" },
+      { "en": "Domestic & industrial wiring", "hi": "घरेलू और औद्योगिक वायरिंग" },
+      { "en": "Job-ready skills in 2 years", "hi": "2 वर्षों में नौकरी के लिए तैयार कौशल" },
+      { "en": "30 intake seats", "hi": "30 प्रवेश सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 7
+  },
+  {
+    "id": "iti-fitter",
+    "categoryId": "technical-vocational",
+    "short": "ITI Fitter",
+    "name": { "en": "Fitter Trade", "hi": "फिटर ट्रेड" },
+    "duration": { "en": "2 Years", "hi": "2 वर्ष" },
+    "seats": 30,
+    "eligible": { "en": "Class 10 Pass", "hi": "कक्षा 10 पास" },
+    "badge": { "en": "DVET Certified", "hi": "DVET प्रमाणित" },
+    "affiliation": "DVET / State Board",
+    "annualFee": "Contact College",
+    "examFee": { "en": "As per DVET", "hi": "DVET के अनुसार" },
+    "totalFee": "—",
+    "description": {
+      "en": "ITI Fitter trade training in mechanical fitting, measurement, machine assembly, and industrial maintenance. Opens pathways to government and private sector employment.",
+      "hi": "मैकेनिकल फिटिंग, माप, मशीन असेंबली और औद्योगिक रखरखाव में ITI फिटर ट्रेड प्रशिक्षण।"
+    },
+    "highlights": [
+      { "en": "Mechanical fitting & assembly skills", "hi": "मैकेनिकल फिटिंग और असेंबली कौशल" },
+      { "en": "Industrial maintenance training", "hi": "औद्योगिक रखरखाव प्रशिक्षण" },
+      { "en": "DVET certified", "hi": "DVET प्रमाणित" },
+      { "en": "30 intake seats", "hi": "30 प्रवेश सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 8
+  },
+  {
+    "id": "dpharma",
+    "categoryId": "medical-paramedical",
+    "short": "D-Pharma",
+    "name": { "en": "Diploma in Pharmacy", "hi": "डिप्लोमा इन फार्मेसी" },
+    "duration": { "en": "2 Years", "hi": "2 वर्ष" },
+    "seats": 60,
+    "eligible": { "en": "12th Bio/Math (50%)", "hi": "12वीं Bio/Math (50%)" },
+    "badge": { "en": "PCI Approved", "hi": "PCI अनुमोदित" },
+    "affiliation": "PCI / State Board",
+    "annualFee": "Contact College",
+    "examFee": { "en": "As per MP Pharmacy Board", "hi": "MP फार्मेसी बोर्ड के अनुसार" },
+    "totalFee": "—",
+    "description": {
+      "en": "Pharmacy Council of India approved 2-year Diploma in Pharmacy covering pharmaceutical sciences, drug dispensing, and pharmacy management.",
+      "hi": "फार्मेसी काउंसिल ऑफ इंडिया द्वारा अनुमोदित 2 वर्षीय डिप्लोमा इन फार्मेसी। दवा विज्ञान, दवा वितरण और फार्मेसी प्रबंधन शामिल है।"
+    },
+    "highlights": [
+      { "en": "PCI (Pharmacy Council of India) approved", "hi": "PCI (फार्मेसी काउंसिल ऑफ इंडिया) अनुमोदित" },
+      { "en": "60 intake seats", "hi": "60 प्रवेश सीटें" },
+      { "en": "Retail & hospital pharmacy pathways", "hi": "रिटेल और अस्पताल फार्मेसी में करियर" },
+      { "en": "Drug dispensing & management", "hi": "दवा वितरण और प्रबंधन" }
+    ],
+    "syllabusUrl": "",
+    "order": 9
+  },
+  {
+    "id": "dmlt",
+    "categoryId": "medical-paramedical",
+    "short": "DMLT",
+    "name": { "en": "Diploma Medical Lab Technology", "hi": "डिप्लोमा मेडिकल लैब टेक्नोलॉजी" },
+    "duration": { "en": "2 Years", "hi": "2 वर्ष" },
+    "seats": 30,
+    "eligible": { "en": "12th Biology (50%)", "hi": "12वीं जीव विज्ञान (50%)" },
+    "badge": { "en": "State Board Approved", "hi": "राज्य बोर्ड अनुमोदित" },
+    "affiliation": "State Board",
+    "annualFee": "Contact College",
+    "examFee": { "en": "As per State Board", "hi": "राज्य बोर्ड के अनुसार" },
+    "totalFee": "—",
+    "description": {
+      "en": "Diploma in Medical Laboratory Technology covering clinical pathology, biochemistry, microbiology, and hematology.",
+      "hi": "मेडिकल लैबोरेटरी टेक्नोलॉजी में डिप्लोमा जिसमें क्लिनिकल पैथोलॉजी, बायोकेमिस्ट्री, माइक्रोबायोलॉजी और हेमेटोलॉजी शामिल है।"
+    },
+    "highlights": [
+      { "en": "Clinical pathology & biochemistry", "hi": "क्लिनिकल पैथोलॉजी और बायोकेमिस्ट्री" },
+      { "en": "Hospital & diagnostic lab careers", "hi": "अस्पताल और डायग्नोस्टिक लैब में करियर" },
+      { "en": "30 intake seats", "hi": "30 प्रवेश सीटें" },
+      { "en": "Hands-on lab training", "hi": "प्रैक्टिकल लैब प्रशिक्षण" }
+    ],
+    "syllabusUrl": "",
+    "order": 10
+  },
+  {
+    "id": "bmlt",
+    "categoryId": "medical-paramedical",
+    "short": "BMLT",
+    "name": { "en": "Bachelor Medical Lab Technology", "hi": "बैचलर मेडिकल लैब टेक्नोलॉजी" },
+    "duration": { "en": "3 Years", "hi": "3 वर्ष" },
+    "seats": 30,
+    "eligible": { "en": "12th Biology (50%)", "hi": "12वीं जीव विज्ञान (50%)" },
+    "badge": { "en": "State Board Approved", "hi": "राज्य बोर्ड अनुमोदित" },
+    "affiliation": "State Board",
+    "annualFee": "Contact College",
+    "examFee": { "en": "As per State Board", "hi": "राज्य बोर्ड के अनुसार" },
+    "totalFee": "—",
+    "description": {
+      "en": "3-year bachelor's degree in Medical Lab Technology covering advanced clinical diagnostics, research methodology, and laboratory management.",
+      "hi": "3 वर्षीय बैचलर डिग्री जिसमें उन्नत क्लिनिकल डायग्नोस्टिक्स, शोध पद्धति और प्रयोगशाला प्रबंधन शामिल है।"
+    },
+    "highlights": [
+      { "en": "Bachelor's level qualification", "hi": "बैचलर स्तरीय योग्यता" },
+      { "en": "Advanced diagnostics & research", "hi": "उन्नत डायग्नोस्टिक्स और शोध" },
+      { "en": "30 intake seats", "hi": "30 प्रवेश सीटें" },
+      { "en": "Higher career prospects than DMLT", "hi": "DMLT से बेहतर करियर संभावनाएं" }
+    ],
+    "syllabusUrl": "",
+    "order": 11
+  },
+  {
+    "id": "ot-tech",
+    "categoryId": "medical-paramedical",
+    "short": "OT Technician",
+    "name": { "en": "Operation Theatre Technician", "hi": "ऑपरेशन थिएटर टेक्नीशियन" },
+    "duration": { "en": "1 Year", "hi": "1 वर्ष" },
+    "seats": 30,
+    "eligible": { "en": "12th Bio/Math", "hi": "12वीं Bio/Math" },
+    "badge": { "en": "State Board Approved", "hi": "राज्य बोर्ड अनुमोदित" },
+    "affiliation": "State Board",
+    "annualFee": "Contact College",
+    "examFee": { "en": "As per State Board", "hi": "राज्य बोर्ड के अनुसार" },
+    "totalFee": "—",
+    "description": {
+      "en": "1-year diploma preparing OT technicians to assist surgeons during operations. Covers sterilization, surgical instruments handling, anesthesia support, and OT management.",
+      "hi": "1 वर्षीय डिप्लोमा जो ऑपरेशन के दौरान सर्जनों की सहायता के लिए OT तकनीशियनों को तैयार करता है।"
+    },
+    "highlights": [
+      { "en": "1-year fast-track programme", "hi": "1 वर्षीय फास्ट-ट्रैक प्रोग्राम" },
+      { "en": "OT & surgical support skills", "hi": "OT और सर्जिकल सपोर्ट कौशल" },
+      { "en": "Hospital employment opportunities", "hi": "अस्पताल रोजगार के अवसर" },
+      { "en": "30 intake seats", "hi": "30 प्रवेश सीटें" }
+    ],
+    "syllabusUrl": "",
+    "order": 12
   }
 ]

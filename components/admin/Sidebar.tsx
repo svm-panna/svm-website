@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import {
-  LayoutDashboard, Bell, BookOpen, Users, Image, Settings, LogOut, Globe, Menu, X,
+  LayoutDashboard, Bell, BookOpen, Users, Image, Settings, LogOut, Globe, Menu, X, CalendarDays,
 } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -15,6 +15,7 @@ const navItems = [
   { href: '/admin/courses', icon: BookOpen, label: 'Courses' },
   { href: '/admin/faculty', icon: Users, label: 'Faculty' },
   { href: '/admin/gallery', icon: Image, label: 'Gallery' },
+  { href: '/admin/important-dates', icon: CalendarDays, label: 'Imp. Dates' },
   { href: '/admin/settings', icon: Settings, label: 'Settings' },
 ];
 

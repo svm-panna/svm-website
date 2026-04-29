@@ -20,12 +20,6 @@ export default async function AdminDashboard() {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-xl font-semibold text-gray-900">
-          Welcome back, {session?.user?.name?.split(' ')[0]}
-        </h1>
-        <p className="text-sm text-gray-500 mt-0.5">Manage the college website from here.</p>
-      </div>
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -51,7 +45,7 @@ export default async function AdminDashboard() {
         <div className="space-y-2">
           {notices.slice(0, 4).map((n) => (
             <div key={n.id} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
-              <p className="text-xs text-gray-700 truncate flex-1 mr-4">{n.title}</p>
+              <p className="text-xs text-gray-700 truncate flex-1 mr-4">{typeof n.title === 'string' ? n.title : n.title.en}</p>
               <span className="text-xs text-gray-400 flex-shrink-0">{n.date}</span>
             </div>
           ))}

@@ -1,0 +1,210 @@
+[
+  {
+    "id": "g01",
+    "src": "/images/gallery-01.jpeg",
+    "alt": { "en": "Annual cultural programme at SVN Panna", "hi": "SVN पन्ना में वार्षिक सांस्कृतिक कार्यक्रम" },
+    "caption": { "en": "Annual cultural programme at SVN Panna", "hi": "SVN पन्ना में वार्षिक सांस्कृतिक कार्यक्रम" },
+    "tag": "events",
+    "order": 1
+  },
+  {
+    "id": "g02",
+    "src": "/images/gallery-02.jpeg",
+    "alt": { "en": "D.El.Ed. classroom practice session", "hi": "डी.एल.एड. कक्षा अभ्यास सत्र" },
+    "caption": { "en": "D.El.Ed. classroom practice session", "hi": "डी.एल.एड. कक्षा अभ्यास सत्र" },
+    "tag": "academics",
+    "order": 2
+  },
+  {
+    "id": "g03",
+    "src": "/images/gallery-03.jpeg",
+    "alt": { "en": "Campus life at SVN Panna", "hi": "SVN पन्ना में कैंपस जीवन" },
+    "caption": { "en": "Campus life at SVN Panna", "hi": "SVN पन्ना में कैंपस जीवन" },
+    "tag": "campus",
+    "order": 3
+  },
+  {
+    "id": "g04",
+    "src": "/images/gallery-04.jpeg",
+    "alt": { "en": "SVN Panna campus activities", "hi": "SVN पन्ना कैंपस गतिविधियां" },
+    "caption": { "en": "SVN Panna campus activities", "hi": "SVN पन्ना कैंपस गतिविधियां" },
+    "tag": "campus",
+    "order": 4
+  },
+  {
+    "id": "g05",
+    "src": "/images/gallery-05.jpeg",
+    "alt": { "en": "Classroom session — B.Ed. programme", "hi": "कक्षा सत्र — बी.एड. कार्यक्रम" },
+    "caption": { "en": "Classroom session — B.Ed. programme", "hi": "कक्षा सत्र — बी.एड. कार्यक्रम" },
+    "tag": "academics",
+    "order": 5
+  },
+  {
+    "id": "g06",
+    "src": "/images/gallery-06.jpeg",
+    "alt": { "en": "Student orientation programme", "hi": "छात्र ओरिएंटेशन कार्यक्रम" },
+    "caption": { "en": "Student orientation programme", "hi": "छात्र ओरिएंटेशन कार्यक्रम" },
+    "tag": "events",
+    "order": 6
+  },
+  {
+    "id": "g07",
+    "src": "/images/gallery-07.jpeg",
+    "alt": { "en": "Teaching practice internship", "hi": "शिक्षण अभ्यास प्रशिक्षण" },
+    "caption": { "en": "Teaching practice internship", "hi": "शिक्षण अभ्यास प्रशिक्षण" },
+    "tag": "academics",
+    "order": 7
+  },
+  {
+    "id": "g08",
+    "src": "/images/gallery-08.jpeg",
+    "alt": { "en": "Inter-college youth festival", "hi": "अंतर-महाविद्यालय युवा महोत्सव" },
+    "caption": { "en": "Inter-college youth festival", "hi": "अंतर-महाविद्यालय युवा महोत्सव" },
+    "tag": "events",
+    "order": 8
+  },
+  {
+    "id": "g09",
+    "src": "/images/gallery-09.jpeg",
+    "alt": { "en": "School teaching practice — B.Ed. internship", "hi": "स्कूल शिक्षण अभ्यास — बी.एड. इंटर्नशिप" },
+    "caption": { "en": "School teaching practice — B.Ed. internship", "hi": "स्कूल शिक्षण अभ्यास — बी.एड. इंटर्नशिप" },
+    "tag": "academics",
+    "order": 9
+  },
+  {
+    "id": "g10",
+    "src": "/images/gallery-10.jpeg",
+    "alt": { "en": "Campus events and student activities", "hi": "कैंपस कार्यक्रम और छात्र गतिविधियां" },
+    "caption": { "en": "Campus events and student activities", "hi": "कैंपस कार्यक्रम और छात्र गतिविधियां" },
+    "tag": "events",
+    "order": 10
+  },
+  {
+    "id": "g11",
+    "src": "/images/gallery-11.jpeg",
+    "alt": { "en": "Special education training workshop", "hi": "विशेष शिक्षा प्रशिक्षण कार्यशाला" },
+    "caption": { "en": "Special education training workshop", "hi": "विशेष शिक्षा प्रशिक्षण कार्यशाला" },
+    "tag": "academics",
+    "order": 11
+  },
+  {
+    "id": "g12",
+    "src": "/images/gallery-12.jpeg",
+    "alt": { "en": "Campus infrastructure at SVN Panna", "hi": "SVN पन्ना में कैंपस बुनियादी ढांचा" },
+    "caption": { "en": "Campus infrastructure at SVN Panna", "hi": "SVN पन्ना में कैंपस बुनियादी ढांचा" },
+    "tag": "campus",
+    "order": 12
+  },
+  {
+    "id": "g13",
+    "src": "/images/gallery-13.jpeg",
+    "alt": { "en": "Sports and extracurricular activities", "hi": "खेल और पाठ्येतर गतिविधियां" },
+    "caption": { "en": "Sports and extracurricular activities", "hi": "खेल और पाठ्येतर गतिविधियां" },
+    "tag": "sports",
+    "order": 13
+  },
+  {
+    "id": "g14",
+    "src": "/images/gallery-14.jpeg",
+    "alt": { "en": "Republic Day celebration on campus", "hi": "कैंपस पर गणतंत्र दिवस समारोह" },
+    "caption": { "en": "Republic Day celebration on campus", "hi": "कैंपस पर गणतंत्र दिवस समारोह" },
+    "tag": "events",
+    "order": 14
+  },
+  {
+    "id": "g15",
+    "src": "/images/gallery-15.jpeg",
+    "alt": { "en": "Convocation and award ceremony", "hi": "दीक्षांत और पुरस्कार समारोह" },
+    "caption": { "en": "Convocation and award ceremony", "hi": "दीक्षांत और पुरस्कार समारोह" },
+    "tag": "events",
+    "order": 15
+  },
+  {
+    "id": "g16",
+    "src": "/images/gallery-16.jpeg",
+    "alt": { "en": "Annual sports meet at SVN Panna", "hi": "SVN पन्ना में वार्षिक खेल प्रतियोगिता" },
+    "caption": { "en": "Annual sports meet at SVN Panna", "hi": "SVN पन्ना में वार्षिक खेल प्रतियोगिता" },
+    "tag": "sports",
+    "order": 16
+  },
+  {
+    "id": "g17",
+    "src": "/images/gallery-17.jpeg",
+    "alt": { "en": "Student life at SVN Panna", "hi": "SVN पन्ना में छात्र जीवन" },
+    "caption": { "en": "Student life at SVN Panna", "hi": "SVN पन्ना में छात्र जीवन" },
+    "tag": "campus",
+    "order": 17
+  },
+  {
+    "id": "g18",
+    "src": "/images/gallery-18.jpeg",
+    "alt": { "en": "Science exhibition and student projects", "hi": "विज्ञान प्रदर्शनी और छात्र परियोजनाएं" },
+    "caption": { "en": "Science exhibition and student projects", "hi": "विज्ञान प्रदर्शनी और छात्र परियोजनाएं" },
+    "tag": "academics",
+    "order": 18
+  },
+  {
+    "id": "g19",
+    "src": "/images/gallery-19.jpeg",
+    "alt": { "en": "Cultural activities at SVN Panna", "hi": "SVN पन्ना में सांस्कृतिक गतिविधियां" },
+    "caption": { "en": "Cultural activities at SVN Panna", "hi": "SVN पन्ना में सांस्कृतिक गतिविधियां" },
+    "tag": "events",
+    "order": 19
+  },
+  {
+    "id": "g20",
+    "src": "/images/gallery-20.jpeg",
+    "alt": { "en": "Library and study sessions", "hi": "पुस्तकालय और अध्ययन सत्र" },
+    "caption": { "en": "Library and study sessions", "hi": "पुस्तकालय और अध्ययन सत्र" },
+    "tag": "academics",
+    "order": 20
+  },
+  {
+    "id": "g21",
+    "src": "/images/gallery-21.jpeg",
+    "alt": { "en": "Faculty development programme", "hi": "शिक्षक विकास कार्यक्रम" },
+    "caption": { "en": "Faculty development programme", "hi": "शिक्षक विकास कार्यक्रम" },
+    "tag": "academics",
+    "order": 21
+  },
+  {
+    "id": "g22",
+    "src": "/images/gallery-22.jpeg",
+    "alt": { "en": "Campus facilities at SVN Panna", "hi": "SVN पन्ना में कैंपस सुविधाएं" },
+    "caption": { "en": "Campus facilities at SVN Panna", "hi": "SVN पन्ना में कैंपस सुविधाएं" },
+    "tag": "campus",
+    "order": 22
+  },
+  {
+    "id": "g23",
+    "src": "/images/gallery-23.jpeg",
+    "alt": { "en": "Student activities and workshops", "hi": "छात्र गतिविधियां और कार्यशालाएं" },
+    "caption": { "en": "Student activities and workshops", "hi": "छात्र गतिविधियां और कार्यशालाएं" },
+    "tag": "events",
+    "order": 23
+  },
+  {
+    "id": "g24",
+    "src": "/images/gallery-24.jpeg",
+    "alt": { "en": "Campus life at SVN Panna", "hi": "SVN पन्ना में कैंपस जीवन" },
+    "caption": { "en": "Campus life at SVN Panna", "hi": "SVN पन्ना में कैंपस जीवन" },
+    "tag": "campus",
+    "order": 24
+  },
+  {
+    "id": "g25",
+    "src": "/images/gallery-25.jpeg",
+    "alt": { "en": "Community engagement by SVN Panna", "hi": "SVN पन्ना द्वारा सामुदायिक सहभागिता" },
+    "caption": { "en": "Community engagement by SVN Panna", "hi": "SVN पन्ना द्वारा सामुदायिक सहभागिता" },
+    "tag": "events",
+    "order": 25
+  },
+  {
+    "id": "g26",
+    "src": "/images/gallery-26.jpeg",
+    "alt": { "en": "Convocation ceremony — graduating class", "hi": "दीक्षांत समारोह — उत्तीर्ण कक्षा" },
+    "caption": { "en": "Convocation ceremony — graduating class", "hi": "दीक्षांत समारोह — उत्तीर्ण कक्षा" },
+    "tag": "events",
+    "order": 26
+  }
+]

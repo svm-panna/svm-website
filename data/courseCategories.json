@@ -1,0 +1,38 @@
+[
+  {
+    "id": "teacher-education",
+    "label": { "en": "Teacher Education", "hi": "शिक्षक शिक्षा" },
+    "affil": "NCTE / MCBU Recognized",
+    "icon": "📚",
+    "accent": "#E87722",
+    "bg": "#FEF3EB",
+    "order": 1
+  },
+  {
+    "id": "special-education",
+    "label": { "en": "Special Education", "hi": "विशेष शिक्षा" },
+    "affil": "NCTE / MCBU Recognized",
+    "icon": "♿",
+    "accent": "#1A2B4A",
+    "bg": "#EEF2FA",
+    "order": 2
+  },
+  {
+    "id": "technical-vocational",
+    "label": { "en": "Technical & Vocational", "hi": "तकनीकी और व्यावसायिक" },
+    "affil": "DVET / State Board",
+    "icon": "⚙️",
+    "accent": "#E87722",
+    "bg": "#FEF3EB",
+    "order": 3
+  },
+  {
+    "id": "medical-paramedical",
+    "label": { "en": "Medical & Paramedical", "hi": "चिकित्सा एवं पैरामेडिकल" },
+    "affil": "PCI / State Board",
+    "icon": "💊",
+    "accent": "#1A2B4A",
+    "bg": "#EEF2FA",
+    "order": 4
+  }
+]

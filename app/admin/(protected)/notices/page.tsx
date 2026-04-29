@@ -7,7 +7,7 @@ import type { Notice } from '@/lib/data';
 
 const emptyNotice = (): Notice => ({
   id: Date.now().toString(),
-  title: '',
+  title: { en: '', hi: '' },
   category: 'general',
   tag: 'general',
   date: new Date().toISOString().split('T')[0],
@@ -41,6 +41,8 @@ export default function AdminNoticesPage() {
 
   const saveEdit = () => {
     if (!editing) return;
+    const title = editing.title as { en: string; hi: string };
+    if (!title.en) return;
     const updated = notices.find(n => n.id === editing.id)
       ? notices.map(n => n.id === editing.id ? editing : n)
       : [editing, ...notices];
@@ -55,12 +57,23 @@ export default function AdminNoticesPage() {
     save(updated);
   };
 
+  const setTitle = (field: 'en' | 'hi', value: string) => {
+    if (!editing) return;
+    const title = editing.title as { en: string; hi: string };
+    setEditing({ ...editing, title: { ...title, [field]: value } });
+  };
+
+  const getEnTitle = (n: Notice) => {
+    const t = n.title;
+    return typeof t === 'string' ? t : t.en;
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-xl font-semibold text-gray-900">Notices &amp; circulars</h1>
-          <p className="text-sm text-gray-500 mt-0.5">Manage notices shown on the website</p>
+          <p className="text-sm text-gray-500 mt-0.5">Manage notices shown on the website. Enter both English and Hindi titles.</p>
         </div>
         <button onClick={addNotice} className="btn-primary text-xs px-4 py-2">
           <Plus size={14} /> Add notice
@@ -73,16 +86,30 @@ export default function AdminNoticesPage() {
         </div>
       )}
 
-      {/* Edit form */}
       {editing && (
         <div className="bg-white border border-brand-200 rounded-xl p-5 mb-6">
           <h2 className="text-sm font-semibold text-gray-900 mb-4">
             {notices.find(n => n.id === editing.id) ? 'Edit notice' : 'New notice'}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="sm:col-span-2">
-              <label className="label">Title *</label>
-              <input className="input" value={editing.title} onChange={e => setEditing({ ...editing, title: e.target.value })} placeholder="Notice title" />
+            <div>
+              <label className="label">Title — English *</label>
+              <input
+                className="input"
+                value={(editing.title as { en: string; hi: string }).en}
+                onChange={e => setTitle('en', e.target.value)}
+                placeholder="Notice title in English"
+              />
+            </div>
+            <div>
+              <label className="label">Title — हिंदी</label>
+              <input
+                className="input"
+                value={(editing.title as { en: string; hi: string }).hi}
+                onChange={e => setTitle('hi', e.target.value)}
+                placeholder="हिंदी में सूचना शीर्षक"
+                dir="auto"
+              />
             </div>
             <div>
               <label className="label">Tag</label>
@@ -104,11 +131,11 @@ export default function AdminNoticesPage() {
             </div>
             <div>
               <label className="label">Link (optional)</label>
-              <input className="input" value={editing.link || ''} onChange={e => setEditing({ ...editing, link: e.target.value })} placeholder="/students/notices" />
+              <input className="input" value={editing.link || ''} onChange={e => setEditing({ ...editing, link: e.target.value })} placeholder="/admissions" />
             </div>
           </div>
           <div className="flex gap-3 mt-4">
-            <button onClick={saveEdit} className="btn-primary text-xs px-4 py-2" disabled={saving || !editing.title}>
+            <button onClick={saveEdit} className="btn-primary text-xs px-4 py-2" disabled={saving || !(editing.title as { en: string }).en}>
               <Save size={14} /> Save
             </button>
             <button onClick={() => setEditing(null)} className="btn-ghost text-xs">
@@ -118,10 +145,9 @@ export default function AdminNoticesPage() {
         </div>
       )}
 
-      {/* Notices list */}
       <div className="bg-white border border-gray-100 rounded-xl overflow-hidden">
         <div className="grid grid-cols-12 px-4 py-2 border-b border-gray-100 text-xs font-medium text-gray-500">
-          <span className="col-span-6">Title</span>
+          <span className="col-span-6">Title (EN)</span>
           <span className="col-span-2">Tag</span>
           <span className="col-span-2">Date</span>
           <span className="col-span-2 text-right">Actions</span>
@@ -131,7 +157,7 @@ export default function AdminNoticesPage() {
         )}
         {notices.map((n) => (
           <div key={n.id} className="grid grid-cols-12 px-4 py-3 border-b border-gray-50 last:border-0 items-center hover:bg-gray-50 transition-colors">
-            <span className="col-span-6 text-xs text-gray-800 truncate pr-4">{n.title}</span>
+            <span className="col-span-6 text-xs text-gray-800 truncate pr-4">{getEnTitle(n)}</span>
             <span className="col-span-2">
               <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded capitalize">{n.tag}</span>
             </span>

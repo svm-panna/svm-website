@@ -1,32 +1,35 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
-import facultyData from '@/data/faculty.json';
-
-const galleryRow2 = [
-  { file: 'gallery-02.jpeg', caption: 'D.El.Ed. classroom practice session' },
-  { file: 'gallery-06.jpeg', caption: 'Student orientation programme' },
-  { file: 'gallery-08.jpeg', caption: 'Inter-college youth festival' },
-  { file: 'gallery-11.jpeg', caption: 'Special education training workshop' },
-  { file: 'gallery-16.jpeg', caption: 'Annual sports meet at SVN Panna' },
-  { file: 'gallery-21.jpeg', caption: 'Faculty development programme' },
-];
-const galleryRow3 = [
-  { file: 'gallery-09.jpeg', caption: 'School teaching practice — B.Ed. internship' },
-  { file: 'gallery-14.jpeg', caption: 'Republic Day celebration on campus' },
-  { file: 'gallery-18.jpeg', caption: 'Science exhibition and student projects' },
-  { file: 'gallery-26.jpeg', caption: 'Convocation ceremony — graduating class' },
-];
+import type { FacultyMember, GalleryImage } from '@/lib/data';
 
 export default function AboutPage() {
   const { lang } = useLanguage();
   const T = translations[lang];
   const Ta = T.about;
   const Tc = T.common;
+
+  const [faculty, setFaculty] = useState<FacultyMember[]>([]);
+  const [gallery, setGallery] = useState<GalleryImage[]>([]);
+
+  useEffect(() => {
+    fetch('/api/faculty').then(r => r.json()).then(setFaculty);
+    fetch('/api/gallery').then(r => r.json()).then((data: GalleryImage[]) =>
+      setGallery(data.sort((a, b) => a.order - b.order))
+    );
+  }, []);
+
+  const name = (f: FacultyMember) => f.name[lang] || f.name.en;
+  const desig = (f: FacultyMember) => f.designation[lang] || f.designation.en;
+
+  const galleryHero = gallery[3]; // order 4
+  const galleryRow2 = gallery.slice(1, 7); // orders 2-7
+  const galleryRow3 = gallery.slice(8, 12); // orders 9-12
 
   return (
     <>
@@ -240,14 +243,14 @@ export default function AboutPage() {
               <div className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#1A2B4A' }}>
                 {Ta.facultyPrincipalLabel}
               </div>
-              {facultyData.filter(f => f.role === 'principal').map(f => (
+              {faculty.filter(f => f.role === 'principal').map(f => (
                 <div key={f.id} className="inline-flex items-center gap-4 bg-white rounded-2xl px-6 py-4 shadow-sm border border-gray-100" style={{ borderLeft: '4px solid #E87722' }}>
                   <div className="w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold text-white flex-shrink-0" style={{ background: '#E87722' }}>
-                    {f.name.charAt(0)}
+                    {name(f).charAt(0)}
                   </div>
                   <div>
-                    <div className="font-bold text-base" style={{ color: '#1A2B4A' }}>{f.name}</div>
-                    <div className="text-sm" style={{ color: '#E87722' }}>{f.designation}</div>
+                    <div className="font-bold text-base" style={{ color: '#1A2B4A' }}>{name(f)}</div>
+                    <div className="text-sm" style={{ color: '#E87722' }}>{desig(f)}</div>
                   </div>
                 </div>
               ))}
@@ -259,14 +262,14 @@ export default function AboutPage() {
                 {Ta.facultyLecturersLabel}
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {facultyData.filter(f => f.role === 'lecturer').map(f => (
+                {faculty.filter(f => f.role === 'lecturer').map(f => (
                   <div key={f.id} className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:-translate-y-0.5 transition-transform duration-200">
                     <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0" style={{ background: '#1A2B4A' }}>
-                      {f.name.charAt(0)}
+                      {name(f).charAt(0)}
                     </div>
                     <div>
-                      <div className="font-medium text-sm" style={{ color: '#1A2B4A' }}>{f.name}</div>
-                      <div className="text-xs text-gray-400">{f.designation}</div>
+                      <div className="font-medium text-sm" style={{ color: '#1A2B4A' }}>{name(f)}</div>
+                      <div className="text-xs text-gray-400">{desig(f)}</div>
                     </div>
                   </div>
                 ))}
@@ -279,14 +282,14 @@ export default function AboutPage() {
                 {Ta.facultySpecializedLabel}
               </div>
               <div className="flex flex-wrap gap-4">
-                {facultyData.filter(f => f.role === 'specialized').map(f => (
+                {faculty.filter(f => f.role === 'specialized').map(f => (
                   <div key={f.id} className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100">
                     <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style={{ background: '#FEF3EB', color: '#E87722' }}>
-                      {f.name.charAt(0)}
+                      {name(f).charAt(0)}
                     </div>
                     <div>
-                      <div className="font-medium text-sm" style={{ color: '#1A2B4A' }}>{f.name}</div>
-                      <div className="text-xs" style={{ color: '#E87722' }}>{f.designation}</div>
+                      <div className="font-medium text-sm" style={{ color: '#1A2B4A' }}>{name(f)}</div>
+                      <div className="text-xs" style={{ color: '#E87722' }}>{desig(f)}</div>
                     </div>
                   </div>
                 ))}
@@ -345,38 +348,44 @@ export default function AboutPage() {
                 <img src="/images/campus-01.jpg" alt="SVN Panna Main Campus" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="rounded-2xl overflow-hidden" style={{ height: '280px' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/gallery-04.jpeg" alt="SVN Panna Activities" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                {galleryHero && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={galleryHero.src} alt={galleryHero.alt[lang] || galleryHero.alt.en} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                )}
               </div>
             </div>
 
             {/* 6-column grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-3">
-              {galleryRow2.map((item) => (
-                <div key={item.file} className="rounded-xl overflow-hidden aspect-square relative group">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/${item.file}`} alt={item.caption} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 px-2 py-1.5 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: 'rgba(26,43,74,0.78)' }}>
-                    {item.caption}
+            {galleryRow2.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-3">
+                {galleryRow2.map((item) => (
+                  <div key={item.id} className="rounded-xl overflow-hidden aspect-square relative group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.src} alt={item.alt[lang] || item.alt.en} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute bottom-0 left-0 right-0 px-2 py-1.5 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: 'rgba(26,43,74,0.78)' }}>
+                      {item.caption[lang] || item.caption.en}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
 
             {/* Bottom row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {galleryRow3.map((item) => (
-                <div key={item.file} className="rounded-xl overflow-hidden relative group" style={{ height: '180px' }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/${item.file}`} alt={item.caption} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 px-3 py-2 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: 'rgba(26,43,74,0.78)' }}>
-                    {item.caption}
+            {galleryRow3.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {galleryRow3.map((item) => (
+                  <div key={item.id} className="rounded-xl overflow-hidden relative group" style={{ height: '180px' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.src} alt={item.alt[lang] || item.alt.en} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute bottom-0 left-0 right-0 px-3 py-2 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: 'rgba(26,43,74,0.78)' }}>
+                      {item.caption[lang] || item.caption.en}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

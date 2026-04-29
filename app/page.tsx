@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
+import NoticeBoard from '@/components/site/NoticeBoard';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
 
@@ -208,91 +209,6 @@ export default function HomePage() {
                   </div>
                   {item}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* QUICK LINKS STRIP */}
-        <section
-          className="py-5 border-b"
-          style={{ background: '#F7F3EE', borderColor: '#E8DDD0' }}
-        >
-          <div className="max-w-7xl mx-auto px-4">
-            {/* Mobile: horizontal scroll; md+: flex centered */}
-            <div className="flex items-center gap-8 md:gap-12 md:justify-center overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
-              {[
-                {
-                  label: lang === 'hi' ? 'पाठ्यक्रम' : 'Courses',
-                  href: '/courses',
-                  icon: (
-                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
-                      <path d="M10 2L2 6l8 4 8-4-8-4z" fill="#E87722" />
-                      <path d="M2 10l8 4 8-4" stroke="#E87722" strokeWidth="1.5" strokeLinecap="round" />
-                      <path d="M2 14l8 4 8-4" stroke="#E87722" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-                    </svg>
-                  ),
-                },
-                {
-                  label: lang === 'hi' ? 'प्रवेश' : 'Admissions',
-                  href: '/admissions',
-                  icon: (
-                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
-                      <rect x="3" y="4" width="14" height="13" rx="2" stroke="#E87722" strokeWidth="1.5" />
-                      <path d="M7 9h6M7 12h4" stroke="#E87722" strokeWidth="1.5" strokeLinecap="round" />
-                      <circle cx="10" cy="2.5" r="1.5" fill="#E87722" />
-                    </svg>
-                  ),
-                },
-                {
-                  label: lang === 'hi' ? 'शुल्क संरचना' : 'Fee Structure',
-                  href: '/courses#fee',
-                  icon: (
-                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
-                      <circle cx="10" cy="10" r="8" stroke="#E87722" strokeWidth="1.5" />
-                      <path d="M10 6v1.5M10 12.5V14M7.5 8.5a2.5 2.5 0 015 0c0 1.5-2.5 2-2.5 3.5" stroke="#E87722" strokeWidth="1.5" strokeLinecap="round" />
-                    </svg>
-                  ),
-                },
-                {
-                  label: lang === 'hi' ? 'परामर्शदाता' : 'Contact Counsellor',
-                  href: '/contact',
-                  icon: (
-                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
-                      <path d="M4 4h12a1 1 0 011 1v8a1 1 0 01-1 1H7l-4 3V5a1 1 0 011-1z" stroke="#E87722" strokeWidth="1.5" strokeLinejoin="round" />
-                    </svg>
-                  ),
-                },
-                {
-                  label: lang === 'hi' ? 'दूरस्थ शिक्षा' : 'Distance Learning',
-                  href: '/distance-learning',
-                  icon: (
-                    <svg viewBox="0 0 20 20" className="w-5 h-5" fill="none">
-                      <circle cx="10" cy="10" r="7" stroke="#E87722" strokeWidth="1.5" />
-                      <ellipse cx="10" cy="10" rx="3.5" ry="7" stroke="#E87722" strokeWidth="1" />
-                      <path d="M3 10h14" stroke="#E87722" strokeWidth="1" strokeLinecap="round" />
-                    </svg>
-                  ),
-                },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="flex flex-col items-center gap-2 flex-shrink-0 group"
-                >
-                  <div
-                    className="w-11 h-11 rounded-full flex items-center justify-center transition-all group-hover:scale-110"
-                    style={{ background: 'rgba(232,119,34,0.12)' }}
-                  >
-                    {item.icon}
-                  </div>
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors group-hover:text-[#E87722]"
-                    style={{ color: '#1A2B4A' }}
-                  >
-                    {item.label}
-                  </span>
-                </Link>
               ))}
             </div>
           </div>
@@ -551,6 +467,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* NOTICE BOARD */}
+        <NoticeBoard />
 
         {/* AFFILIATIONS */}
         <section className="py-20 bg-white">

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "d1",
+    "month": { "en": "MAY", "hi": "मई" },
+    "day": "1",
+    "title": { "en": "Admissions Open", "hi": "प्रवेश खुले" },
+    "description": { "en": "Application forms available online and at the college", "hi": "आवेदन फॉर्म ऑनलाइन और महाविद्यालय में उपलब्ध" },
+    "highlight": true
+  },
+  {
+    "id": "d2",
+    "month": { "en": "JUL", "hi": "जुल" },
+    "day": "31",
+    "title": { "en": "Last Date to Apply", "hi": "आवेदन की अंतिम तिथि" },
+    "description": { "en": "Deadline for all program applications (subject to seats)", "hi": "सभी कार्यक्रम आवेदनों की अंतिम तिथि (सीटों के अधीन)" },
+    "highlight": false
+  },
+  {
+    "id": "d3",
+    "month": { "en": "AUG", "hi": "अग" },
+    "day": "15",
+    "title": { "en": "Document Verification", "hi": "दस्तावेज सत्यापन" },
+    "description": { "en": "Selected candidates called for document verification", "hi": "चुने गए अभ्यर्थियों को दस्तावेज सत्यापन के लिए बुलाया जाएगा" },
+    "highlight": false
+  },
+  {
+    "id": "d4",
+    "month": { "en": "SEP", "hi": "सित" },
+    "day": "1",
+    "title": { "en": "Academic Session Begins", "hi": "शैक्षणिक सत्र शुरू" },
+    "description": { "en": "Orientation and commencement of classes", "hi": "ओरिएंटेशन और कक्षाओं का प्रारंभ" },
+    "highlight": false
+  }
+]

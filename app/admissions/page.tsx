@@ -1,17 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
+import type { ImportantDate } from '@/lib/data';
 
 export default function AdmissionsPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [importantDates, setImportantDates] = useState<ImportantDate[]>([]);
   const { lang } = useLanguage();
   const T = translations[lang];
   const Ta = T.admissions;
+
+  useEffect(() => {
+    fetch('/api/important-dates').then(r => r.json()).then(setImportantDates);
+  }, []);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -261,9 +267,9 @@ export default function AdmissionsPage() {
                   {Ta.importantDates}
                 </h2>
                 <div className="space-y-4">
-                  {Ta.importantDatesData.map((date) => (
+                  {importantDates.map((date) => (
                     <div
-                      key={date.title}
+                      key={date.id}
                       className="flex items-start gap-4 p-4 rounded-xl"
                       style={date.highlight ? { background: '#FEF3EB' } : { border: '1px solid #E5EAF3' }}
                     >
@@ -271,12 +277,12 @@ export default function AdmissionsPage() {
                         className="w-12 h-12 rounded-xl flex flex-col items-center justify-center flex-shrink-0"
                         style={{ background: date.highlight ? '#E87722' : '#1A2B4A' }}
                       >
-                        <span className="text-white text-xs font-bold">{date.month}</span>
+                        <span className="text-white text-xs font-bold">{date.month[lang] || date.month.en}</span>
                         <span className="text-white text-lg font-bold leading-none">{date.day}</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-sm" style={{ color: '#1A2B4A' }}>{date.title}</div>
-                        <div className="text-xs text-gray-600 mt-0.5">{date.desc}</div>
+                        <div className="font-semibold text-sm" style={{ color: '#1A2B4A' }}>{date.title[lang] || date.title.en}</div>
+                        <div className="text-xs text-gray-600 mt-0.5">{date.description[lang] || date.description.en}</div>
                       </div>
                     </div>
                   ))}

@@ -1,20 +1,17 @@
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import bcrypt from 'bcryptjs';
+import { timingSafeEqual } from 'crypto';
 
-// In production, store these in your database / environment variables
-// NEVER commit real passwords to the repo
-const ADMIN_USERS = [
-  {
-    id: '1',
-    username: process.env.ADMIN_USERNAME || 'admin',
-    // Generate hash: node -e "const b=require('bcryptjs');console.log(b.hashSync('yourpassword',12))"
-    passwordHash: process.env.ADMIN_PASSWORD_HASH || '$2a$12$placeholder.hash.replace.with.real.one',
-    name: 'SVM Admin',
-    email: process.env.ADMIN_EMAIL || 'admin@swamivivekanandmahavidyalaya.edu.in',
-    role: 'admin',
-  },
-];
+function safeCompare(a: string, b: string): boolean {
+  const ba = Buffer.from(a);
+  const bb = Buffer.from(b);
+  if (ba.length !== bb.length) {
+    // Still run timingSafeEqual on equal-length buffers to avoid timing leak on length
+    timingSafeEqual(ba, ba);
+    return false;
+  }
+  return timingSafeEqual(ba, bb);
+}
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -27,24 +24,26 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials?.username || !credentials?.password) return null;
 
-        const user = ADMIN_USERS.find(
-          (u) => u.username === credentials.username,
-        );
-        if (!user) return null;
+        const validUsername = process.env.ADMIN_USERNAME || 'admin';
+        const validPassword = process.env.ADMIN_PASSWORD || '';
 
-        const valid = await bcrypt.compare(credentials.password, user.passwordHash);
-        if (!valid) return null;
+        if (!validPassword) return null;
+
+        const usernameOk = safeCompare(credentials.username, validUsername);
+        const passwordOk = safeCompare(credentials.password, validPassword);
+
+        if (!usernameOk || !passwordOk) return null;
 
         return {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          role: user.role,
+          id: '1',
+          name: 'SVM Admin',
+          email: process.env.ADMIN_EMAIL || '',
+          role: 'admin',
         };
       },
     }),
   ],
-  session: { strategy: 'jwt', maxAge: 8 * 60 * 60 }, // 8 hour session
+  session: { strategy: 'jwt', maxAge: 8 * 60 * 60 },
   pages: {
     signIn: '/admin/login',
     error: '/admin/login',

@@ -22,24 +22,6 @@ const nextConfig = {
       },
     ];
   },
-  async rewrites() {
-    return {
-      beforeFiles: [
-        // Admin subdomain rewrite: administration.domain.com → /admin
-        {
-          source: '/:path*',
-          has: [{ type: 'host', value: 'administration.swamivivekanandmahavidyalaya.edu.in' }],
-          destination: '/admin/:path*',
-        },
-        // Local dev admin subdomain
-        {
-          source: '/:path*',
-          has: [{ type: 'host', value: 'administration.localhost:3000' }],
-          destination: '/admin/:path*',
-        },
-      ],
-    };
-  },
 };
 
 module.exports = nextConfig;

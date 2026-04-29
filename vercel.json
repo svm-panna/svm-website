@@ -16,13 +16,6 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "administration.swamivivekanandmahavidyalaya.edu.in" }],
-      "destination": "/admin/:path*"
-    }
-  ],
   "env": {
     "NEXTAUTH_URL": "https://swamivivekanandmahavidyalaya.edu.in"
   }

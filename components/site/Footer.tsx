@@ -117,6 +117,9 @@ export default function Footer() {
             <Link href="/sitemap" className="hover:text-white transition-colors">
               {T.sitemap}
             </Link>
+            <Link href="/admin/login" className="hover:text-white transition-colors opacity-50 hover:opacity-100">
+              {T.admin}
+            </Link>
           </div>
         </div>
       </div>

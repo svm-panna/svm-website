@@ -1,42 +1,57 @@
 [
   {
     "id": "1",
-    "title": "Admissions open for 2025–26 — B.Ed, M.Ed, BA B.Ed, B.Sc B.Ed",
+    "title": {
+      "en": "Admissions open for 2026–27 — B.Ed., D.El.Ed., B.A.B.Ed. and more",
+      "hi": "2026-27 के लिए प्रवेश खुले — बी.एड., डी.एल.एड., बी.ए.बी.एड. और अन्य"
+    },
     "category": "admission",
     "tag": "important",
-    "date": "2025-04-20",
+    "date": "2026-04-01",
     "link": "/admissions"
   },
   {
     "id": "2",
-    "title": "Internal examination timetable for M.Ed 2nd Semester released",
+    "title": {
+      "en": "Internal examination timetable for B.Ed. 2nd Semester released",
+      "hi": "बी.एड. द्वितीय सेमेस्टर की आंतरिक परीक्षा समय-सारणी जारी"
+    },
     "category": "exam",
     "tag": "new",
-    "date": "2025-04-15",
-    "link": "/students/notices"
+    "date": "2026-03-20",
+    "link": ""
   },
   {
     "id": "3",
-    "title": "Workshop on inclusive education practices — registration open",
+    "title": {
+      "en": "Workshop on inclusive education practices — registration open",
+      "hi": "समावेशी शिक्षा पर कार्यशाला — पंजीकरण खुले"
+    },
     "category": "event",
     "tag": "new",
-    "date": "2025-04-10",
-    "link": "/students/notices"
+    "date": "2026-03-10",
+    "link": ""
   },
   {
     "id": "4",
-    "title": "NCTE affiliation certificate renewed for session 2025–27",
+    "title": {
+      "en": "NCTE affiliation certificate renewed for session 2025–27",
+      "hi": "NCTE संबद्धता प्रमाण पत्र 2025-27 सत्र के लिए नवीनीकृत"
+    },
     "category": "general",
     "tag": "general",
-    "date": "2025-03-28",
+    "date": "2026-02-28",
     "link": "/contact"
   },
   {
     "id": "5",
-    "title": "Holiday list for April–May 2025 declared",
+    "title": {
+      "en": "Holiday list for April–May 2026 declared",
+      "hi": "अप्रैल-मई 2026 की छुट्टियों की सूची घोषित"
+    },
     "category": "general",
     "tag": "general",
-    "date": "2025-03-20",
-    "link": "/students/notices"
+    "date": "2026-02-15",
+    "link": ""
   }
 ]
