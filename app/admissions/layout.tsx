@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Admissions',
   description:
-    'Apply for admissions at Swami Vivekanand Mahavidyalaya, Panna. Eligibility criteria, important dates, and online application for B.Ed., M.Ed., and integrated programmes.',
+    'Apply for admissions at Swami Vivekanand Mahavidyalaya, Panna. Eligibility, important dates, and online enquiry for B.Ed., M.Ed., and integrated programmes.',
   alternates: {
     canonical: 'https://swamivivekanandmahavidyalaya.edu.in/admissions',
   },

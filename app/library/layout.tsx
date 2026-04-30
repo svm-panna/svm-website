@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Library',
   description:
-    'Library resources at Swami Vivekanand Mahavidyalaya — books, publishers, and reference materials for B.Ed., M.Ed., and teacher education programmes in Panna, MP.',
+    'Library resources at Swami Vivekanand Mahavidyalaya — books and reference materials for B.Ed., M.Ed., and teacher education programmes in Panna, MP.',
   alternates: {
     canonical: 'https://swamivivekanandmahavidyalaya.edu.in/library',
   },

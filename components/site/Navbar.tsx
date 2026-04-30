@@ -102,7 +102,7 @@ export default function Navbar() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/logo.png" alt="Swami Vivekanand Mahavidyalaya Panna" className="h-32 w-auto object-contain" style={{ maxWidth: '280px' }} />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/logo2.png" alt="" className="h-22 w-auto object-contain" style={{ maxWidth: '300px' }} />
+                <img src="/images/logo2.png" alt="Swami Vivekanand Mahavidyalaya, Panna — Institutional Emblem" className="h-22 w-auto object-contain" style={{ maxWidth: '300px' }} />
               </Link>
             </div>
 

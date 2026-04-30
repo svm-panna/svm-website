@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | Swami Vivekanand Mahavidyalaya',
   },
   description:
-    'A premier NCTE-approved teacher education institution in Janakpur, Panna, Madhya Pradesh. Offering B.Ed, M.Ed, BA B.Ed and B.Sc B.Ed programmes affiliated to Maharaja Chhatrasal Bundelkhand University.',
+    'NCTE-approved teacher education college in Panna, Madhya Pradesh. Offering B.Ed, M.Ed, BA B.Ed and B.Sc B.Ed programmes affiliated to Maharaja Chhatrasal Bundelkhand University (MCBU).',
   keywords: [
     'Swami Vivekanand Mahavidyalaya',
     'B.Ed college Panna',
@@ -72,7 +72,6 @@ const jsonLd = {
     postalCode: '488001',
     addressCountry: 'IN',
   },
-  telephone: '',
   email: 'info@swamivivekanandmahavidyalaya.edu.in',
   foundingDate: '2014',
   accreditedBy: {
@@ -89,13 +88,12 @@ const jsonLd = {
     '@type': 'OfferCatalog',
     name: 'Academic Programmes',
     itemListElement: [
-      { '@type': 'Course', name: 'Bachelor of Education (B.Ed.)', educationalLevel: 'Undergraduate' },
-      { '@type': 'Course', name: 'Master of Education (M.Ed.)', educationalLevel: 'Postgraduate' },
-      { '@type': 'Course', name: 'Integrated BA B.Ed.', educationalLevel: 'Undergraduate' },
-      { '@type': 'Course', name: 'Integrated B.Sc B.Ed.', educationalLevel: 'Undergraduate' },
+      { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Bachelor of Education (B.Ed.)', educationalLevel: 'Undergraduate' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Master of Education (M.Ed.)', educationalLevel: 'Postgraduate' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Integrated BA B.Ed.', educationalLevel: 'Undergraduate' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Integrated B.Sc B.Ed.', educationalLevel: 'Undergraduate' } },
     ],
   },
-  sameAs: [],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

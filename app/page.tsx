@@ -161,6 +161,7 @@ export default function HomePage() {
       <main>
         {/* HERO — clean banner image, no overlay */}
         <section className="relative overflow-hidden" style={{ background: '#ffffff' }}>
+          <h1 className="sr-only">Swami Vivekanand Mahavidyalaya — Teacher Education College, Panna, Madhya Pradesh</h1>
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

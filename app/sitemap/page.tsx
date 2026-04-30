@@ -3,7 +3,7 @@ import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
 
 export const metadata = {
-  title: 'Sitemap — Swami Vivekanand Mahavidyalaya, Panna',
+  title: { absolute: 'Sitemap | Swami Vivekanand Mahavidyalaya' },
 };
 
 const siteMap = [

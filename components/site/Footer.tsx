@@ -25,7 +25,7 @@ export default function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/logo2.png"
-                alt=""
+                alt="Swami Vivekanand Mahavidyalaya, Panna — Institutional Emblem"
                 className="h-14 w-auto object-contain"
                 style={{ maxWidth: '180px' }}
               />

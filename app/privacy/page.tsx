@@ -3,7 +3,7 @@ import Navbar from '@/components/site/Navbar';
 import Footer from '@/components/site/Footer';
 
 export const metadata = {
-  title: 'Privacy Policy — Swami Vivekanand Mahavidyalaya, Panna',
+  title: { absolute: 'Privacy Policy | Swami Vivekanand Mahavidyalaya' },
 };
 
 export default function PrivacyPage() {
