@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
     siteName: 'Swami Vivekanand Mahavidyalaya',
     title: 'Swami Vivekanand Mahavidyalaya — Panna, MP',
-    description: 'Shaping the teachers of tomorrow. NCTE approved, Est. 2017.',
+    description: 'Shaping the teachers of tomorrow. NCTE approved, Est. 2014.',
     images: [
       {
         url: '/images/banner-01.jpeg',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Swami Vivekanand Mahavidyalaya — Panna, MP',
-    description: 'Shaping the teachers of tomorrow. NCTE approved, Est. 2017.',
+    description: 'Shaping the teachers of tomorrow. NCTE approved, Est. 2014.',
     images: ['/images/banner-01.jpeg'],
   },
   icons: {
@@ -73,7 +73,7 @@ const jsonLd = {
     addressCountry: 'IN',
   },
   email: 'info@swamivivekanandmahavidyalaya.edu.in',
-  foundingDate: '2017',
+  foundingDate: '2014',
   accreditedBy: {
     '@type': 'Organization',
     name: 'National Council for Teacher Education',
